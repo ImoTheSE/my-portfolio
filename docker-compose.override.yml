@@ -1,0 +1,11 @@
+
+services:
+  backend:
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    ports:
+      - "1234:1234"
+
+  frontend:
+    command: node --inspect=0.0.0.0:9229 node_modules/.bin/nuxi dev
+    ports:
+      - "9229:9229"  # デバッグ用ポート

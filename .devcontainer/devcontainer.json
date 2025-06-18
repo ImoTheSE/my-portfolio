@@ -1,0 +1,31 @@
+{
+  "name": "Rails + Nuxt Dev Container",
+  "dockerComposeFile": [
+    "../docker-compose.yml",
+    "../docker-compose.override.yml"
+  ],
+  "service": "backend",
+  "workspaceFolder": "/workspace",
+  "forwardPorts": [3000, 3001, 5432,1234, 9229],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "rebornix.Ruby",
+        "castwide.solargraph",
+        "Shopify.ruby-lsp",
+        "esbenp.prettier-vscode",
+        "ruby-debug.ide-ruby"
+      ]
+    }
+  },
+  "remoteEnv": {
+   // "RUBY_DEBUG_OPEN": "true",
+   // "RUBY_DEBUG_PORT": "1235"
+  },
+  "postStartCommand": "bash .devcontainer/scripts/setup.sh",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Rails Debug (Attach)",
+      "type": "rdbg",
+      "request": "attach",
+      "debugPort": "1234"
+    },
+    {
+      "type": "rdbg",
+      "name": "Launch Rails (port 3000)",
+      "request": "launch",
+      "script": "bin/rails",
+      "args": ["s", "-b", "0.0.0.0", "-p", "3000"],
+      "useBundler": true,
+      "cwd": "/workspace/backend"
+      // "rdbgArgs": ["--open"],
+      // "rdbgInitialScripts": []
+    }
+  ]
+}
