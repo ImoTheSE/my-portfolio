@@ -6,8 +6,10 @@ export const step2: Step = {
   formFields: [
     { name: 'email', label: 'メールアドレス', type: 'email', placeholder: 'example@example.com' }
   ],
-  buttons: [
-    { label: '戻る', actionKey: 'goToPrevious' },
+  button1: [
+    { label: '戻る', actionKey: 'goToPrevious' }
+  ],
+  button2: [
     { label: '完了', actionKey: 'finish' }
   ]
 }

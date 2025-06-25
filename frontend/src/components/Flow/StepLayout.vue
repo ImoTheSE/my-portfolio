@@ -1,25 +1,48 @@
 <template>
   <div class="step-layout">
     <h1>{{ step.title }}</h1>
-    <pre class="step-description">{{ step.description }}</pre>
+    <div class="step-description">
+      <p :style="step.descriptionStyle">{{ step.description }}</p>
+    </div>
 
-    <StepForm v-if="step.formFields" :fields="step.formFields" />
+    <StepForm v-if="step.formFields" 
+      :fields="step.formFields" 
+      :formStyle="step.formStyle"
+    />
 
-    <div class="button-area" v-if="step.buttons">
+    <div
+    class="button-area"
+    v-for="(buttonGroup, groupIndex) in buttonGroups"
+    :key="groupIndex"
+    >
       <StepButton
-        v-for="(btn, index) in step.buttons"
+        v-for="(btn, index) in buttonGroup.list"
         :key="index"
         :button="btn"
-        @action="onAction(btn.actionKey)"
+        :style="buttonGroup.style"
+        @action="props.onAction(btn.actionKey)"
       />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import type { Step } from '@/types/Step'
 import StepButton from './StepButton.vue'
 import StepForm from './StepForm.vue'
 
-defineProps<{ step: Step; onAction: (key: string) => void }>()
+const props = defineProps<{ step: Step; onAction: (key: string) => void }>()
+
+const buttonGroups = computed(() => {
+  if (!props.step) return []
+  return [
+    props.step.button1 ? { list: props.step.button1, style: props.step.button1Style } : null,
+    props.step.button2 ? { list: props.step.button2, style: props.step.button2Style } : null,
+    props.step.button3 ? { list: props.step.button3, style: props.step.button3Style } : null,
+    props.step.button4 ? { list: props.step.button4, style: props.step.button3Style } : null
+  ].filter((group): group is { list: any; style: any } => group !== null)
+})
+
 </script>
+

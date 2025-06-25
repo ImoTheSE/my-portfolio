@@ -14,6 +14,7 @@
         :name="field.name"
         :id="field.name"
         :placeholder="field.placeholder"
+        :style="formStyle"
       ></textarea>
     </div>
   </form>
@@ -21,5 +22,5 @@
 
 <script setup lang="ts">
 import type { StepFormField } from '@/types/Step'
-defineProps<{ fields: StepFormField[] }>()
+defineProps<{ fields: StepFormField[], formStyle: Record<string, string> }>()
 </script>

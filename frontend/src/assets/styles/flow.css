@@ -1,3 +1,7 @@
+body {
+  overflow-x: hidden;  /* 横スクロールバーを消す（はみ出し防止） */
+}
+
 .step-layout {
   max-width: 600px;
   margin: 0 auto;
@@ -7,6 +11,11 @@
 .step-description {
   white-space: pre-wrap;
   margin-bottom: 1rem;
+  width: 100%;
+  max-width: 100%;  /* 親に収める */
+  box-sizing: border-box;  /* paddingやborder含めて幅計算 */
+  overflow-wrap: break-word; /* 長い単語を折り返す */
+  word-wrap: break-word;     /* 古いブラウザ向け */
 }
 
 .step-form .form-field {

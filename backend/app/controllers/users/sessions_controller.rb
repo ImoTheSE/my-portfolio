@@ -5,14 +5,15 @@ class Users::SessionsController < Devise::SessionsController
   private
 
   #デバッグ
-  binding.break
+  #binding.break
   #デバッグ
 
   def respond_with(resource, _opts = {})
-    render json: {
-      message: 'ログイン成功',
-      user: resource
-    }, status: :ok
+    if resource.persisted?
+    render json: { message: 'ログイン成功', user: resource }, status: :ok
+  else
+    render json: { message: 'ログイン失敗' }, status: :unauthorized
+  end
   end
 
   def respond_to_on_destroy
