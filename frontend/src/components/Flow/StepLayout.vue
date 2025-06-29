@@ -2,8 +2,16 @@
   <div class="step-layout">
     <h1>{{ step.title }}</h1>
     <div class="step-description">
-      <p :style="step.descriptionStyle">{{ step.description }}</p>
+      <p v-for="(descGroup, i) in descriptionGroups" 
+      :key="i" 
+      :style="descGroup.style"
+      >
+        <template v-for="(line, j) in descGroup.lines" :key="j">
+          {{ line }}<br v-if="j !== descGroup.lines.length - 1" />
+        </template>
+      </p>
     </div>
+
 
     <StepForm v-if="step.formFields" 
       :fields="step.formFields" 
@@ -40,9 +48,24 @@ const buttonGroups = computed(() => {
     props.step.button1 ? { list: props.step.button1, style: props.step.button1Style } : null,
     props.step.button2 ? { list: props.step.button2, style: props.step.button2Style } : null,
     props.step.button3 ? { list: props.step.button3, style: props.step.button3Style } : null,
-    props.step.button4 ? { list: props.step.button4, style: props.step.button3Style } : null
+    props.step.button4 ? { list: props.step.button4, style: props.step.button4Style } : null
   ].filter((group): group is { list: any; style: any } => group !== null)
 })
+
+const descriptionGroups = computed(() => {
+  if (!props.step || !props.step.description) return []
+
+  const base = props.step.description
+
+  return base.map((desc, i) => {
+    const styleKey = `description${i + 1}Style` as keyof Step
+    return {
+      lines: desc.split('\n'),
+      style: props.step[styleKey] || {}
+    }
+  })
+})
+
 
 </script>
 

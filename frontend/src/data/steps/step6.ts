@@ -1,7 +1,7 @@
 import type { Step } from '@/types/Step'
 
-export const step1: Step = {
-  title: 'ステップ1',
+export const step6: Step = {
+  title: 'ステップ6',
   description: [],
   description1Style: {
     position: 'absolute',
@@ -16,18 +16,8 @@ export const step1: Step = {
     wordBreak: 'break-word',
     overflowWrap: 'break-word'
   },
-  formFields: [
-    { name: '', label: '', type: 'textarea', placeholder: '例：一年目' }
-  ],
-  formStyle: {
-    position: 'absolute',
-    top: '55%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    minWidth: '60%'
-  },
   button1: [
-    { label: '戻る', actionKey: 'goToPrevious' }
+    { label: '戻る', actionKey: 'goToPrevious3' }
   ],
   button1Style: {
     position: 'absolute',
@@ -37,13 +27,23 @@ export const step1: Step = {
     minWidth: '15%'
   },
   button2: [
-    { label: '次へ', actionKey: 'goToNext' }
+    { label: 'エラー箇所を特定した', actionKey: 'goToNext' }
   ],
   button2Style: {
+    position: 'absolute',
+    top: '70%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    minWidth: '15%'
+  },
+  button3: [
+    { label: 'ログの読み方がわからない', actionKey: 'goToChatGPT' }
+  ],
+  button3Style: {
     position: 'absolute',
     top: '70%',
     left: '80%',
     transform: 'translate(-50%, -50%)',
     minWidth: '15%'
-  },
+  }
 }

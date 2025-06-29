@@ -1,7 +1,7 @@
 import type { Step } from '@/types/Step'
 
-export const step1: Step = {
-  title: 'ステップ1',
+export const step3: Step = {
+  title: 'ステップ3',
   description: [],
   description1Style: {
     position: 'absolute',
@@ -16,18 +16,8 @@ export const step1: Step = {
     wordBreak: 'break-word',
     overflowWrap: 'break-word'
   },
-  formFields: [
-    { name: '', label: '', type: 'textarea', placeholder: '例：一年目' }
-  ],
-  formStyle: {
-    position: 'absolute',
-    top: '55%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    minWidth: '60%'
-  },
   button1: [
-    { label: '戻る', actionKey: 'goToPrevious' }
+    { label: 'ログって何？', actionKey: 'goToNext2' }
   ],
   button1Style: {
     position: 'absolute',
@@ -37,7 +27,7 @@ export const step1: Step = {
     minWidth: '15%'
   },
   button2: [
-    { label: '次へ', actionKey: 'goToNext' }
+    { label: 'ない', actionKey: 'goToNext' }
   ],
   button2Style: {
     position: 'absolute',
@@ -46,4 +36,24 @@ export const step1: Step = {
     transform: 'translate(-50%, -50%)',
     minWidth: '15%'
   },
+  button3: [
+    { label: 'ある', actionKey: 'goToNext3' }
+  ],
+  button3Style: {
+    position: 'absolute',
+    top: '70%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    minWidth: '15%'
+  },
+  button4: [
+    { label: '戻る', actionKey: 'goToPrevious' }
+  ],
+  button4Style: {
+    position: 'absolute',
+    top: '80%',
+    left: '10%',
+    transform: 'translate(-50%, -50%)',
+    minWidth: '15%'
+  }
 }

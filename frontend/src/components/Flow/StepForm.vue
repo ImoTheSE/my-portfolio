@@ -8,6 +8,7 @@
         :name="field.name"
         :id="field.name"
         :placeholder="field.placeholder"
+        :style="formStyle"
       />
       <textarea
         v-else

@@ -4,6 +4,7 @@ export interface StepButton {
 }
 
 export interface ButtonStyleDefinition {
+  display?: string
   position?: string
   top?: string
   left?: string
@@ -46,14 +47,19 @@ export interface descriptionsStyleDefinition {
   textAlign?: 'left' | 'right' | 'center' | 'justify' | 'start' | 'end'
   wordBreak?: string
   overflowWrap?: string
+  maxWidth?: string
+  whitespace?: string
+  display?: string
+  alignitems?: string      /* ← 縦方向の中央揃え */
+  justifycontent?: string  /* ← 横方向の中央揃え */
   [key: string]: string | undefined
 }
 
-
 export interface Step {
   title: string
-  description: string
-  descriptionStyle?: descriptionsStyleDefinition
+  description: string[]
+  description1Style?: descriptionsStyleDefinition
+  description2Style?: descriptionsStyleDefinition
   button1?: StepButton[]
   button2?: StepButton[]
   button3?: StepButton[]
