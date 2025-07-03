@@ -19,6 +19,10 @@ export const useAppFlow = () => {
 
   const goToStep = (index: number) => {
     if (index >= 0 && index < steps.value.length) {
+      if (Array.isArray(currentStep.formFields) && currentStep.formFields.length > 0) {
+      console.log('フォームがあるステップに遷移します')
+      }
+      
       currentStepIndex.value = index
     }
   }
