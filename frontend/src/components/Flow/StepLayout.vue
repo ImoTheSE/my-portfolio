@@ -2,7 +2,7 @@
   <div class="step-layout">
     <h1>{{ step.title }}</h1>
     <div class="step-description">
-      <p v-for="(descGroup, i) in descriptionGroups" 
+      <p v-for="(descGroup, i) in descriptionGroups"
       :key="i" 
       :style="descGroup.style"
       >
@@ -16,6 +16,7 @@
     <StepForm v-if="step.formFields" 
       :fields="step.formFields" 
       :formStyle="step.formStyle"
+      v-model:formData="formData"
     />
 
     <div
@@ -28,7 +29,10 @@
         :key="index"
         :button="btn"
         :style="buttonGroup.style"
-        @action="props.onAction(btn.actionKey)"
+        @action="() => {
+          props.onAction(btn.actionKey, formData)
+          clearFormData()
+        }"
       />
     </div>
   </div>
@@ -39,8 +43,15 @@ import { computed } from 'vue'
 import type { Step } from '@/types/Step'
 import StepButton from './StepButton.vue'
 import StepForm from './StepForm.vue'
+import { ref } from 'vue'
 
-const props = defineProps<{ step: Step; onAction: (key: string) => void }>()
+const formData = ref<Record<string, string>>({})
+
+
+const props = defineProps<{
+  step: Step
+  onAction: (key: string, formData?: Record<string, string>) => void
+}>()
 
 const buttonGroups = computed(() => {
   if (!props.step) return []
@@ -66,6 +77,11 @@ const descriptionGroups = computed(() => {
   })
 })
 
+const clearFormData = () => {
+  for (const key in formData.value) {
+    formData.value[key] = ''
+  }
+}
 
 </script>
 

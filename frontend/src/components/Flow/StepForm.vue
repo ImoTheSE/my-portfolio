@@ -8,6 +8,7 @@
         :name="field.name"
         :id="field.name"
         :placeholder="field.placeholder"
+        v-model="localData[field.name]"
         :style="formStyle"
       />
       <textarea
@@ -15,6 +16,7 @@
         :name="field.name"
         :id="field.name"
         :placeholder="field.placeholder"
+        v-model="localData[field.name]"
         :style="formStyle"
       ></textarea>
     </div>
@@ -22,6 +24,21 @@
 </template>
 
 <script setup lang="ts">
+import { ref, watch } from 'vue'
 import type { StepFormField } from '@/types/Step'
-defineProps<{ fields: StepFormField[], formStyle: Record<string, string> }>()
+
+const props = defineProps<{
+  fields: StepFormField[]
+  formStyle: Record<string, string>
+  formData: Record<string, string>
+}>()
+
+const emit = defineEmits(['update:formData'])
+
+const localData = ref({ ...props.formData })
+
+watch(localData, (newVal) => {
+  emit('update:formData', newVal)
+}, { deep: true })
+
 </script>
