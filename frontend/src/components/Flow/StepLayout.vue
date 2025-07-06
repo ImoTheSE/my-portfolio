@@ -31,7 +31,6 @@
         :style="buttonGroup.style"
         @action="() => {
           props.onAction(btn.actionKey, formData)
-          clearFormData()
         }"
       />
     </div>
@@ -39,14 +38,15 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref, watch } from 'vue'
 import type { Step } from '@/types/Step'
 import StepButton from './StepButton.vue'
 import StepForm from './StepForm.vue'
-import { ref } from 'vue'
+import { useAppFlow } from '@/composables/useAppFlow'
+
+const { getSavedInput } = useAppFlow()
 
 const formData = ref<Record<string, string>>({})
-
 
 const props = defineProps<{
   step: Step
@@ -82,6 +82,16 @@ const clearFormData = () => {
     formData.value[key] = ''
   }
 }
+
+
+watch(
+  () => props.step.title,
+  (title) => {
+    formData.value = getSavedInput(title)
+    console.log('[watch] step.title changed → formData restored:', formData.value)
+  },
+  { immediate: true }
+)
 
 </script>
 

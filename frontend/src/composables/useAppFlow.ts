@@ -33,6 +33,19 @@ export const useAppFlow = () => {
     }
   }
 
+  const getSavedInput = (stepTitle: string): Record<string, string> => {
+    const raw = loadInput(stepTitle)
+    const parsed: Record<string, string> = {}
+
+    raw.split('\n').forEach((line) => {
+      const [key, value] = line.split(':')
+      if (key && value !== undefined) {
+        parsed[key.trim()] = value.trim()
+      }
+    })
+
+    return parsed
+  }
 
 
   const actionHandlers: Record<string, (inputData?: Record<string, string>) => void> = {
@@ -79,6 +92,7 @@ export const useAppFlow = () => {
   return {
     currentStep,
     handleAction,
-    goToStep
+    goToStep,
+    getSavedInput
   }
 }
