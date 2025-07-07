@@ -60,7 +60,6 @@ export const useAppFlow = () => {
       router.push({
         path: '/chatgpt',
         query: {
-          command: '○○',
           from: 'appFrame'
         },
         state: {
@@ -71,15 +70,12 @@ export const useAppFlow = () => {
       router.push({
         path: '/howToDebug',
         query: {
-          command: '○○',
           from: 'appFrame'
         },
         state: {
           fromStep: currentStepIndex.value
         }
-      }),
-    finish: () => alert('完了しました！'),
-    showHelp: () => alert('ヘルプを表示します')
+      })
   }
 
   const handleAction = (actionKey: string, inputData?: Record<string, string>) => {
