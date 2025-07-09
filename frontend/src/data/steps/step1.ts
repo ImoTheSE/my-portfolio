@@ -1,6 +1,7 @@
 import type { Step } from '@/types/Step'
 
 export const step1: Step = {
+  id: 's1',
   title: 'ステップ1',
   description: [],
   description1Style: {

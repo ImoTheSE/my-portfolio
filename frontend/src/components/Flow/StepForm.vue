@@ -37,8 +37,12 @@ const emit = defineEmits(['update:formData'])
 
 const localData = ref({ ...props.formData })
 
+watch(() => props.formData, (newVal) => {
+  localData.value = { ...newVal }
+}, { immediate: true })
+
 watch(localData, (newVal) => {
   emit('update:formData', newVal)
 }, { deep: true })
-
 </script>
+

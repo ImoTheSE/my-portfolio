@@ -85,10 +85,10 @@ const clearFormData = () => {
 
 
 watch(
-  () => props.step.title,
-  (title) => {
-    formData.value = getSavedInput(title)
-    console.log('[watch] step.title changed → formData restored:', formData.value)
+  () => props.step.id,
+  (id) => {
+    formData.value = getSavedInput(id)
+    console.log('[watch] step.id changed → formData restored:', formData.value)
   },
   { immediate: true }
 )

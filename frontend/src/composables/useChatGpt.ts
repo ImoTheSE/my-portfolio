@@ -11,11 +11,11 @@ export const useChatGpt = () => {
   const from = route.query.from as string || 'appFrame'
   const fromStep = history.state?.fromStep ?? 0
 
-  const stepTitle = appSteps[fromStep]?.title ?? ''
-  const savedInput = getSavedInput(stepTitle)
-  const formattedCommand = Object.entries(savedInput)
-  .map(([key, value]) => `${key}: ${value}`)
-  .join('\n')
+  const stepID = appSteps[fromStep]?.id ?? ''
+  const savedInput = getSavedInput(stepID)
+  // const formattedCommand = Object.entries(savedInput)
+  // .map(([key, value]) => `${key}: ${value}`)
+  // .join('\n')
 
 
   const answer = ref('')
@@ -30,18 +30,26 @@ export const useChatGpt = () => {
     })
   }
 
+  const allInputs = ref<{ step: string; key: string; value: string }[]>([])
+
   onMounted(async () => {
-  loading.value = true
-  await new Promise(resolve => setTimeout(resolve, 1000))
+    loading.value = true
+    await new Promise(resolve => setTimeout(resolve, 1000))
 
-  const stepTitle = appSteps[fromStep]?.title ?? ''
-  const savedInput = getSavedInput(stepTitle)
-  const formattedCommand = Object.values(savedInput).join('\n')
+    allInputs.value = loadAllStepInputs()
 
-  answer.value = `「${formattedCommand}」という命令に対するモック回答です。`
-  loading.value = false
-})
+    const sortedInputs = allInputs.value.sort((a, b) => {
+      const aIndex = appSteps.findIndex(step => step.id === a.step)
+      const bIndex = appSteps.findIndex(step => step.id === b.step)
+      return aIndex - bIndex
+    })
 
+    // 例：1件目のvalueだけ表示に使う
+    const mainValue = sortedInputs[0]?.value ?? ''
+    answer.value = `「${mainValue}」という命令に対するモック回答です。`
+
+    loading.value = false
+  })
 
   return {
     answer,

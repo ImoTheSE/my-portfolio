@@ -17,24 +17,48 @@ export const useAppFlow = () => {
     }
   })
 
+  const saveFilteredInput = (
+    formFields: { name?: string }[] | undefined,
+    inputData?: Record<string, string>,
+    stepId?: string
+  ) => {
+    if (
+      Array.isArray(formFields) &&
+      formFields.length > 0 &&
+      inputData &&
+      Object.keys(inputData).length > 0 &&
+      stepId
+    ) {
+      const filtered: Record<string, string> = {}
+
+      formFields.forEach((field) => {
+        if (field?.name && inputData[field.name]) {
+          filtered[field.name] = inputData[field.name]
+        }
+      })
+
+      if (Object.keys(filtered).length > 0) {
+        const formatted = Object.entries(filtered)
+          .map(([key, value]) => `${key}: ${value}`)
+          .join('\n')
+
+        saveInput(stepId, formatted)
+      }
+    }
+  }
+
   const goToStep = (index: number, inputData?: Record<string, string>) => {
     if (index >= 0 && index < steps.value.length) {
-      if (Array.isArray(currentStep.value.formFields) && currentStep.value.formFields.length > 0) {
-        const formatted =
-          inputData && Object.keys(inputData).length > 0
-            ? Object.entries(inputData)
-                .map(([key, value]) => `${key}: ${value}`)
-                .join('\n')
-            : ''
-        saveInput(currentStep.value.title, formatted)
-      }
+      const current = currentStep.value
+
+      saveFilteredInput(current.formFields, inputData, current.id)
 
       currentStepIndex.value = index
     }
   }
 
-  const getSavedInput = (stepTitle: string): Record<string, string> => {
-    const raw = loadInput(stepTitle)
+  const getSavedInput = (stepID: string): Record<string, string> => {
+    const raw = loadInput(stepID)
     const parsed: Record<string, string> = {}
 
     raw.split('\n').forEach((line) => {
@@ -56,7 +80,10 @@ export const useAppFlow = () => {
     goToPrevious2: (data) => goToStep(currentStepIndex.value - 2, data),
     goToPrevious3: (data) => goToStep(currentStepIndex.value - 3, data),
     goToStart: (data) => goToStep(0, data),
-    goToChatGPT: () =>
+    goToChatGPT: (data) => {
+      const current = currentStep.value
+      saveFilteredInput(current.formFields, data, current.id)
+
       router.push({
         path: '/chatgpt',
         query: {
@@ -65,7 +92,8 @@ export const useAppFlow = () => {
         state: {
           fromStep: currentStepIndex.value
         }
-      }),
+      })
+    },
     goToHowToDebug: () =>
       router.push({
         path: '/howToDebug',

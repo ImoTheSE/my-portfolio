@@ -56,6 +56,7 @@ export interface descriptionsStyleDefinition {
 }
 
 export interface Step {
+  id:string
   title: string
   description: string[]
   description1Style?: descriptionsStyleDefinition
