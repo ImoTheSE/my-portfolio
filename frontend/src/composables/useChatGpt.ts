@@ -34,21 +34,23 @@ export const useChatGpt = () => {
 
   onMounted(async () => {
     loading.value = true
-    await new Promise(resolve => setTimeout(resolve, 1000))
 
-    allInputs.value = loadAllStepInputs()
+    const mainValue = loadAllStepInputs()[0]?.value ?? ''
 
-    const sortedInputs = allInputs.value.sort((a, b) => {
-      const aIndex = appSteps.findIndex(step => step.id === a.step)
-      const bIndex = appSteps.findIndex(step => step.id === b.step)
-      return aIndex - bIndex
-    })
-
-    // 例：1件目のvalueだけ表示に使う
-    const mainValue = sortedInputs[0]?.value ?? ''
-    answer.value = `「${mainValue}」という命令に対するモック回答です。`
-
-    loading.value = false
+    try {
+      const res = await fetch('http://localhost:3000/api/chatgpt', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ input: mainValue }),
+        credentials: 'include'
+      })
+      const data = await res.json()
+      answer.value = data.answer
+    } catch (e) {
+      answer.value = 'API通信に失敗しました。'
+    } finally {
+      loading.value = false
+    }
   })
 
   return {
