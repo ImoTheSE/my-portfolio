@@ -2,7 +2,7 @@ import type { Step } from '@/types/Step'
 
 export const step1: Step = {
   id: 's1',
-  title: 'ステップ1',
+  title: '',
   description: [],
   description1Style: {
     position: 'absolute',
@@ -26,16 +26,6 @@ export const step1: Step = {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     minWidth: '60%'
-  },
-  button1: [
-    { label: '戻る', actionKey: 'goToPrevious' }
-  ],
-  button1Style: {
-    position: 'absolute',
-    top: '70%',
-    left: '20%',
-    transform: 'translate(-50%, -50%)',
-    minWidth: '15%'
   },
   button2: [
     { label: '次へ', actionKey: 'goToNext' }
