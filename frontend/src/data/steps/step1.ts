@@ -18,7 +18,7 @@ export const step1: Step = {
     overflowWrap: 'break-word'
   },
   formFields: [
-    { name: 'step1', label: '', type: 'textarea', placeholder: '例：一年目' }
+    { name: 'yearLevel', label: '', type: 'textarea', placeholder: '例：一年目' }
   ],
   formStyle: {
     position: 'absolute',

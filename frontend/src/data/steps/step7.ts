@@ -55,7 +55,7 @@ export const step7: Step = {
     minWidth: '15%'
   },
   formFields: [
-    { name: 'step7', label: '', type: 'text', placeholder: '例：VScode' }
+    { name: 'IDEname', label: '', type: 'text', placeholder: '例：VScode' }
   ],
   formStyle: {
     position: 'absolute',

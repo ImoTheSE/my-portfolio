@@ -1,14 +1,23 @@
 class Api::ChatgptController < ApplicationController
-
   def ask
-    input = params[:input]
-    # ↓ DB検索の分岐条件（モック）
-    if input == "既知の質問"
-      render json: { answer: "これは事前に保存された回答です。" }
-    else
-      client = OpenaiClient.new
-      answer = client.generate_answer(input)
-      render json: { answer: answer }
+    inputs = params[:inputs] || []
+    from_step = params[:from_step] || "default"
+
+    # キーから value を取得しやすくする
+    input_hash = inputs.index_by { |i| i['key'] }
+
+    # YAMLテンプレート読み込み
+    template_config = YAML.load_file(Rails.root.join("config/prompts/template.yml"))
+    template = template_config.dig('templates', from_step) || template_config['default']
+
+    # テンプレートに埋め込み
+    user_input = template.gsub(/\{\{(\w+)\}\}/) do
+      input_hash[$1]&.dig('value') || "(未入力)"
     end
+
+    # ChatGPTへ
+    client = OpenaiClient.new
+    answer = client.generate_answer(user_input)
+    render json: { answer: answer }
   end
 end

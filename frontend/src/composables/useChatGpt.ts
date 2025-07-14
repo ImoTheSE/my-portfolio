@@ -1,10 +1,8 @@
 
 import { useRoute, useRouter } from 'vue-router'
-import { useAppFlow } from '@/composables/useAppFlow'
 import { appSteps } from '@/data/appSteps'
 
 export const useChatGpt = () => {
-  const { getSavedInput } = useAppFlow()
   const route = useRoute()
   const router = useRouter()
 
@@ -12,11 +10,6 @@ export const useChatGpt = () => {
   const fromStep = history.state?.fromStep ?? 0
 
   const stepID = appSteps[fromStep]?.id ?? ''
-  const savedInput = getSavedInput(stepID)
-  // const formattedCommand = Object.entries(savedInput)
-  // .map(([key, value]) => `${key}: ${value}`)
-  // .join('\n')
-
 
   const answer = ref('')
   const loading = ref(true)
@@ -35,13 +28,16 @@ export const useChatGpt = () => {
   onMounted(async () => {
     loading.value = true
 
-    const mainValue = loadAllStepInputs()[0]?.value ?? ''
+    const mainValue = loadAllStepInputs()
 
     try {
-      const res = await fetch('http://localhost:3000/api/chatgpt', {
+        const res = await fetch('http://localhost:3000/api/chatgpt', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ input: mainValue }),
+        body: JSON.stringify({
+          inputs: mainValue,
+          from_step: appSteps[fromStep]?.id ?? 'default'
+        }),
         credentials: 'include'
       })
       const data = await res.json()
