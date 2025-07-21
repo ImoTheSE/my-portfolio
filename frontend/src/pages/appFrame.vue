@@ -6,6 +6,10 @@
 import { useAppFlow } from '@/composables/useAppFlow'
 import { shallowRef, watchEffect } from 'vue'
 
+definePageMeta({
+  middleware: ['auth']
+})
+
 const { currentStep, handleAction } = useAppFlow()
 const currentComponent = shallowRef()
 

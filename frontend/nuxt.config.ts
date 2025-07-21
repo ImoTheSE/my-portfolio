@@ -10,4 +10,13 @@ export default defineNuxtConfig({
     host: '0.0.0.0'
   },
   srcDir: 'src/',   // ★ Nuxt のソースディレクトリを src に指定
+  modules: [
+    '@pinia/nuxt',
+    '@pinia-plugin-persistedstate/nuxt'
+  ],
+  runtimeConfig: {
+    public: {
+      apiBase: 'http://localhost:3000'
+    }
+  }
 })

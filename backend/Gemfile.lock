@@ -277,11 +277,13 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
+  bcrypt
   bootsnap
   debug
   devise
   devise-jwt
   dotenv-rails
+  jwt
   pg (>= 1.5.9)
   puma (>= 5.0)
   rack-cors

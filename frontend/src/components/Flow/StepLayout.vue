@@ -1,6 +1,7 @@
 <template>
   <div class="step-layout">
     <h1>{{ step.title }}</h1>
+    <LogoutButton class="absolute top-4 right-4" />
     <div class="step-description">
       <p v-for="(descGroup, i) in descriptionGroups"
       :key="i" 
@@ -43,6 +44,7 @@ import type { Step } from '@/types/Step'
 import StepButton from './StepButton.vue'
 import StepForm from './StepForm.vue'
 import { useAppFlow } from '@/composables/useAppFlow'
+import LogoutButton from '@/components/OtherParts/LogoutButton.vue'
 
 const { getSavedInput } = useAppFlow()
 

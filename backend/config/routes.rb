@@ -1,15 +1,10 @@
 Rails.application.routes.draw do
-  # Devise ルーティング（カスタムパスとコントローラー指定）
-  devise_for :users,
-             path: '',
-             path_names: {
-               sign_in: 'login',
-               sign_out: 'logout'
-             },
-             controllers: {
-               sessions: 'users/sessions'
-             },
-             defaults: { format: :json }
+  namespace :api do
+    namespace :v1 do
+      post 'auth/login'
+      post 'auth/register'
+    end
+  end
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.

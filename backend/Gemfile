@@ -54,3 +54,6 @@ gem 'rack-cors' # フロントエンドからの通信許可
 
 gem "ruby-openai"
 gem 'dotenv-rails'
+
+gem 'bcrypt'
+gem 'jwt'
