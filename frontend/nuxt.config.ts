@@ -10,6 +10,13 @@ export default defineNuxtConfig({
     host: '0.0.0.0'
   },
   srcDir: 'src/',   // ★ Nuxt のソースディレクトリを src に指定
+  css: ['@/assets/css/tailwind.css'],
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {}
+    }
+  },
   modules: [
     '@pinia/nuxt',
     '@pinia-plugin-persistedstate/nuxt'

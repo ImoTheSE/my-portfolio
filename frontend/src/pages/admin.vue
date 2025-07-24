@@ -1,44 +1,45 @@
 <template>
-  <div class="p-4">
-    <LogoutButton class="mb-4" />
+  <div style="padding: 16px;">
+    <h1>質問検索</h1>
+    <LogoutButton class="absolute top-4 right-4" />
 
-    <div class="mb-4">
+    <div style="margin-bottom: 16px;">
       <input
         v-model="query"
         type="text"
         placeholder="検索キーワード"
-        class="border px-2 py-1 mr-2"
+        style="padding: 4px; margin-right: 8px;"
       />
-      <button @click="search" class="bg-blue-600 text-white px-3 py-1 rounded">検索</button>
+      <button @click="search" style="padding: 4px 12px;">検索</button>
     </div>
 
-    <div v-if="results.length" class="overflow-x-auto">
-        <table class="table-auto border border-gray-300 border-collapse w-full text-sm text-left">
-            <thead class="bg-gray-100">
-            <tr>
-                <th class="border border-gray-300 px-4 py-2 w-1/3">質問</th>
-                <th class="border border-gray-300 px-4 py-2">回答</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr v-for="item in results" :key="item.id">
-                <td class="border border-gray-300 px-4 py-2 align-top font-medium">
-                {{ item.question }}
-                </td>
-                <td class="border border-gray-300 px-4 py-2 align-top">
-                {{ expandedId === item.id ? item.answer : truncate(item.answer, 100) }}
-                <button @click="toggleExpand(item.id)" class="ml-2 text-blue-500 text-xs">
-                    {{ expandedId === item.id ? "閉じる" : "続きを読む" }}
-                </button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+    <table border="1" cellpadding="8" cellspacing="0" style="width: 100%; border-collapse: collapse;">
+      <thead style="background-color: #f0f0f0;">
+        <tr>
+          <th style="width: 30%;">質問</th>
+          <th>回答</th>
+          <th style="width: 80px;">操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="item in results" :key="item.id">
+          <td>{{ item.question }}</td>
+          <td>
+            {{ expandedId === item.id ? item.answer : truncate(item.answer, 100) }}
+            <button @click="toggleExpand(item.id)" style="margin-left: 8px;">
+              {{ expandedId === item.id ? '閉じる' : '続きを読む' }}
+            </button>
+          </td>
+          <td>
+            <button @click="deleteItem(item.id)" style="color: red;">削除</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
-    <div v-else class="text-gray-500 mt-4">
+    <p v-if="results.length === 0" style="margin-top: 16px; color: gray;">
       検索結果がありません
-    </div>
+    </p>
   </div>
 </template>
 
@@ -56,6 +57,7 @@ const {
   expandedId,
   search,
   toggleExpand,
-  truncate
+  truncate,
+  deleteItem
 } = useQuestionSearch()
 </script>

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
       post 'auth/login'
       post 'auth/register'
 
-      resources :question_answers, only: [:index]
+      resources :question_answers, only: [:index, :destroy]
     end
 
     # chatgptエンドポイントはv1の外で定義されている（そのままでOK）

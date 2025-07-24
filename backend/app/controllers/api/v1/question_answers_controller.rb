@@ -8,4 +8,10 @@ class Api::V1::QuestionAnswersController < ApplicationController
 
     render json: @results
   end
+
+  def destroy
+    question_answer = QuestionAnswer.find(params[:id])
+    question_answer.destroy
+    head :no_content
+  end
 end
