@@ -6,11 +6,11 @@ export const step2: Step = {
   description: [],
   description1Style: {
     position: 'absolute',
-    top: '30%',
+    top: '100px',
     left: '50%',
     transform: 'translate(-50%, -50%)',
     color: '#333',
-    fontSize: 'clamp(25px, 4vw, 40px)',
+    fontSize: 'clamp(20px, 4vw, 40px)',
     fontWeight: 'normal',
     lineHeight: '1.5',
     textAlign: 'center',
@@ -22,7 +22,7 @@ export const step2: Step = {
   ],
   formStyle: {
     position: 'absolute',
-    top: '55%',
+    top: '220px',
     left: '50%',
     transform: 'translate(-50%, -50%)',
     minWidth: '60%'
@@ -32,7 +32,7 @@ export const step2: Step = {
   ],
   button1Style: {
     position: 'absolute',
-    top: '70%',
+    top: '420px',
     left: '20%',
     transform: 'translate(-50%, -50%)',
     minWidth: '15%'
@@ -42,7 +42,7 @@ export const step2: Step = {
   ],
   button2Style: {
     position: 'absolute',
-    top: '70%',
+    top: '420px',
     left: '80%',
     transform: 'translate(-50%, -50%)',
     minWidth: '15%'

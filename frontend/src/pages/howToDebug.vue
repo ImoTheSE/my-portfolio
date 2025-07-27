@@ -1,5 +1,12 @@
 <template>
   <div class="container">
+    <!-- 上部の説明文 -->
+    <div class="description">
+      <p>
+        このページでは、Miroの埋め込みを通じて概要をご覧いただけます。下の図を確認しながら操作を進めてください。
+      </p>
+    </div>
+
     <!-- Miro埋め込み -->
     <iframe 
       width="768" 
@@ -25,6 +32,7 @@
 
 <script setup lang="ts">
 import { useHowToDebug } from '@/composables/useHowToDebug'
+
 const { handleLeftClick, handleRightClick } = useHowToDebug();
 </script>
 
@@ -36,10 +44,27 @@ const { handleLeftClick, handleRightClick } = useHowToDebug();
   height: 100vh;
   overflow: hidden;
 
-  /* iframeを中央に配置する */
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  padding-top: 3vh;
+  box-sizing: border-box;
+}
+
+/* 上の説明文 */
+.description {
+  max-width: 768px;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+iframe {
+  width: 768px;
+  height: 432px;
+  border: none;
 }
 
 /* ボタン共通スタイル */
@@ -56,12 +81,13 @@ const { handleLeftClick, handleRightClick } = useHowToDebug();
 }
 
 .bottom-left {
-  bottom: 1rem;
+  bottom: 55px;
   left: 1rem;
 }
 
 .bottom-right {
-  bottom: 1rem;
+  bottom: 55px;
   right: 1rem;
 }
+
 </style>

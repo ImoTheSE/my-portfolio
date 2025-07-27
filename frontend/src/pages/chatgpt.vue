@@ -2,17 +2,20 @@
   <div class="chatgpt-page">
     <button @click="goBack" class="back-button">← 戻る</button>
 
-    <h1>AIの回答</h1>
 
     <div class="chat-window">
       <div v-if="loading">回答を取得中...</div>
       <div v-else>{{ answer }}</div>
     </div>
   </div>
+  <DuckBubbleTail />
+  <DuckImage />
 </template>
 
 <script setup lang="ts">
 import { useChatGpt } from '@/composables/useChatGpt'
+import DuckImage from '@/components/OtherParts/DuckImage.vue'
+import DuckBubbleTail from '@/components/OtherParts/DuckBubbleTail.vue'
 
 const { loading, answer, goBack } = useChatGpt()
 </script>

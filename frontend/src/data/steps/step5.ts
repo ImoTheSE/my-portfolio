@@ -6,11 +6,11 @@ export const step5: Step = {
   description: [],
   description1Style: {
     position: 'absolute',
-    top: '10%',
+    top: '50px',
     left: '50%',
     transform: 'translateX(-50%)',
     color: '#333',
-    fontSize: 'clamp(18px, 2vw, 30px)',
+    fontSize: 'clamp(15px, 2vw, 30px)',
     fontWeight: 'normal',
     lineHeight: '1.5',
     textAlign: 'start',
@@ -21,11 +21,11 @@ export const step5: Step = {
   },
   description2Style: {
     position: 'absolute',
-    top: '70%',
+    top: '300px',
     left: '50%',
     transform: 'translateX(-50%)',
     color: '#333',
-    fontSize: 'clamp(18px, 2vw, 30px)',
+    fontSize: 'clamp(14px, 2vw, 30px)',
     fontWeight: 'normal',
     lineHeight: '1.5',
     textAlign: 'start',
@@ -39,7 +39,7 @@ export const step5: Step = {
   ],
   button1Style: {
     position: 'absolute',
-    top: '60%',
+    top: '280px',
     left: '30%',
     transform: 'translate(-50%, -50%)',
     minWidth: '15%'
@@ -49,7 +49,7 @@ export const step5: Step = {
   ],
   button2Style: {
     position: 'absolute',
-    top: '80%',
+    top: '420px',
     left: '80%',
     transform: 'translate(-50%, -50%)',
     minWidth: '15%'

@@ -1,31 +1,36 @@
-
+import { ref, onMounted } from 'vue'
+import type { Router } from 'vue-router'
 
 export const useHowToDebug = () => {
-  const route = useRoute()
-  const router = useRouter()
-  const from = route.query.from as string || 'appFrame'
-  const fromStep = history.state?.fromStep ?? 0
+  const handleLeftClick = ref<() => void>(() => {})
+  const handleRightClick = ref<() => void>(() => {})
 
-  const handleLeftClick = () => {
-    router.push({
-      path: `/${from}`,
-        state: {
-        restoreStep: 6 // 戻る先のページで取得してステップを復元
-        }
-    })
-  }
+  onMounted(() => {
+    const route = useRoute()
+    const router = useRouter()
+    const from = route.query.from as string || 'appFrame'
 
-  const handleRightClick = () => {
-    router.push({
-      path: `/${from}`,
+    handleLeftClick.value = () => {
+      router.push({
+        path: `/${from}`,
         state: {
-        restoreStep: 8 // 戻る先のページで取得してステップを復元
+          restoreStep: 6
         }
-    })
-  }
+      })
+    }
+
+    handleRightClick.value = () => {
+      router.push({
+        path: `/${from}`,
+        state: {
+          restoreStep: 8
+        }
+      })
+    }
+  })
 
   return {
     handleLeftClick,
-    handleRightClick,
+    handleRightClick
   }
 }

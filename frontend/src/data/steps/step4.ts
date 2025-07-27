@@ -6,11 +6,11 @@ export const step4: Step = {
   description: [],
   description1Style: {
     position: 'absolute',
-    top: '10%',
+    top: '60px',
     left: '50%',
     transform: 'translateX(-50%)',
     color: '#333',
-    fontSize: 'clamp(18px, 2vw, 30px)',
+    fontSize: 'clamp(14px, 2vw, 25px)',
     fontWeight: 'normal',
     lineHeight: '1.5',
     textAlign: 'start',
@@ -24,7 +24,7 @@ export const step4: Step = {
   ],
   button1Style: {
     position: 'absolute',
-    top: '90%',
+    top: '420px',
     left: '20%',
     transform: 'translate(-50%, -50%)',
     minWidth: '15%'

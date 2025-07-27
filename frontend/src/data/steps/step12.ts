@@ -6,11 +6,11 @@ export const step12: Step = {
   description: [],
   description1Style: {
     position: 'absolute',
-    top: '10%',
+    top: '50px',
     left: '50%',
     transform: 'translateX(-50%)',
     color: '#333',
-    fontSize: 'clamp(18px, 2vw, 27px)',
+    fontSize: 'clamp(12px, 2vw, 22px)',
     fontWeight: 'normal',
     lineHeight: '1.5',
     textAlign: 'start',
@@ -24,19 +24,19 @@ export const step12: Step = {
   ],
   button1Style: {
     position: 'absolute',
-    top: '80%',
+    top: '420px',
     left: '20%',
     transform: 'translate(-50%, -50%)',
-    minWidth: '15%'
+    width: '25vw'
   },
   button2: [
     { label: '最初に戻る', actionKey: 'goToStart' }
   ],
   button2Style: {
     position: 'absolute',
-    top: '80%',
+    top: '420px',
     left: '80%',
     transform: 'translate(-50%, -50%)',
-    minWidth: '15%'
-  },
+    width: '25vw'
+  }
 }

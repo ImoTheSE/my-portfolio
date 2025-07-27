@@ -1,10 +1,13 @@
 body {
-  overflow-x: hidden;  /* 横スクロールバーを消す（はみ出し防止） */
+  min-height: 700px;
+  overflow-y: auto;
+  max-width: 1200px;
 }
 
+
 .step-layout {
-  margin: 0 auto;
-  padding: 1rem;
+  min-height: 20vh; /* 中身がはみ出すレベルの高さを確保 */
+  position: relative;
 }
 
 .step-description {

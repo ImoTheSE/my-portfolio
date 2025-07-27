@@ -6,11 +6,11 @@ export const step9: Step = {
   description: [],
   description1Style: {
     position: 'absolute',
-    top: '30%',
+    top: '100px',
     left: '50%',
     transform: 'translate(-50%, -50%)',
     color: '#333',
-    fontSize: 'clamp(25px, 4vw, 40px)',
+    fontSize: 'clamp(20px, 4vw, 40px)',
     fontWeight: 'normal',
     lineHeight: '1.5',
     textAlign: 'center',
@@ -18,41 +18,44 @@ export const step9: Step = {
     overflowWrap: 'break-word'
   },
   button1: [
-    { label: '間違った実行方法だったので、やり直したら正常になった', actionKey: 'goToNext' }
+    { label: '正しく実行し直したら正常になった', actionKey: 'goToNext' }
   ],
   button1Style: {
     position: 'absolute',
-    top: '70%',
+    top: '420px',
     left: '20%',
     transform: 'translate(-50%, -50%)',
-    minWidth: '15%'
+    height: '80px',
+    width: '25vw'
   },
   button2: [
     { label: '仕様書を確認する必要が出た', actionKey: 'goToNext2' }
   ],
   button2Style: {
     position: 'absolute',
-    top: '70%',
+    top: '420px',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    minWidth: '15%'
+    height: '80px',
+    width: '25vw'
   },
   button3: [
     { label: '修正が必要なのがわかった', actionKey: 'goToNext3' }
   ],
   button3Style: {
     position: 'absolute',
-    top: '70%',
+    top: '420px',
     left: '80%',
     transform: 'translate(-50%, -50%)',
-    minWidth: '15%'
+    height: '80px',
+    width: '25vw'
   },
   button4: [
     { label: '戻る', actionKey: 'goToHowToDebug' }
   ],
   button4Style: {
     position: 'absolute',
-    top: '90%',
+    top: '532px',
     left: '10%',
     transform: 'translate(-50%, -50%)',
     minWidth: '15%'

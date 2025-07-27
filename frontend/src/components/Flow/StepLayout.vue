@@ -1,4 +1,6 @@
 <template>
+  <DuckBubbleTail />
+  <DuckImage />
   <div class="step-layout">
     <h1>{{ step.title }}</h1>
     <LogoutButton class="absolute top-4 right-4" />
@@ -45,6 +47,8 @@ import StepButton from './StepButton.vue'
 import StepForm from './StepForm.vue'
 import { useAppFlow } from '@/composables/useAppFlow'
 import LogoutButton from '@/components/OtherParts/LogoutButton.vue'
+import DuckImage from '@/components/OtherParts/DuckImage.vue'
+import DuckBubbleTail from '@/components/OtherParts/DuckBubbleTail.vue'
 
 const { getSavedInput } = useAppFlow()
 

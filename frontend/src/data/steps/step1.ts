@@ -6,7 +6,7 @@ export const step1: Step = {
   description: [],
   description1Style: {
     position: 'absolute',
-    top: '30%',
+    top: '100px',
     left: '50%',
     transform: 'translate(-50%, -50%)',
     color: '#333',
@@ -22,7 +22,7 @@ export const step1: Step = {
   ],
   formStyle: {
     position: 'absolute',
-    top: '55%',
+    top: '220px',
     left: '50%',
     transform: 'translate(-50%, -50%)',
     minWidth: '60%'
@@ -32,7 +32,7 @@ export const step1: Step = {
   ],
   button2Style: {
     position: 'absolute',
-    top: '70%',
+    top: '420px',
     left: '80%',
     transform: 'translate(-50%, -50%)',
     minWidth: '15%'

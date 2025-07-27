@@ -6,11 +6,11 @@ export const step7: Step = {
   description: [],
   description1Style: {
     position: 'absolute',
-    top: '10%',
+    top: '40px',
     left: '50%',
     transform: 'translateX(-50%)',
     color: '#333',
-    fontSize: 'clamp(18px, 2vw, 30px)',
+    fontSize: 'clamp(15px, 2vw, 25px)',
     fontWeight: 'normal',
     lineHeight: '1.5',
     textAlign: 'center',
@@ -21,11 +21,11 @@ export const step7: Step = {
   },
   description2Style: {
     position: 'absolute',
-    top: '40%',
+    top: '240px',
     left: '50%',
     transform: 'translateX(-50%)',
     color: '#333',
-    fontSize: 'clamp(18px, 2vw, 30px)',
+    fontSize: 'clamp(15px, 2vw, 25px)',
     fontWeight: 'normal',
     lineHeight: '1.5',
     textAlign: 'center',
@@ -39,7 +39,7 @@ export const step7: Step = {
   ],
   button1Style: {
     position: 'absolute',
-    top: '37%',
+    top: '220px',
     left: '30%',
     transform: 'translate(-50%, -50%)',
     minWidth: '15%'
@@ -49,7 +49,7 @@ export const step7: Step = {
   ],
   button2Style: {
     position: 'absolute',
-    top: '37%',
+    top: '220px',
     left: '70%',
     transform: 'translate(-50%, -50%)',
     minWidth: '15%'
@@ -59,8 +59,8 @@ export const step7: Step = {
   ],
   formStyle: {
     position: 'absolute',
-    top: '70%',
-    left: '35%',
+    top: '420px',
+    left: '30%',
     transform: 'translate(-50%, -50%)',
     minWidth: '20%'
   },
@@ -69,7 +69,7 @@ export const step7: Step = {
   ],
   button3Style: {
     position: 'absolute',
-    top: '70%',
+    top: '420px',
     left: '70%',
     transform: 'translate(-50%, -50%)',
     minWidth: '15%'
@@ -79,9 +79,9 @@ export const step7: Step = {
   ],
   button4Style: {
     position: 'absolute',
-    top: '80%',
+    top: '532px',
     left: '10%',
     transform: 'translate(-50%, -50%)',
     minWidth: '15%'
-  },
+  }
 }

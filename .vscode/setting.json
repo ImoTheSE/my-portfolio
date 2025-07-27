@@ -1,7 +1,4 @@
 {
   "ruby.useBundler": true,
-  "ruby.rakeEnabled": false,
-    "files.associations": {
-    "*.css": "tailwindcss"
-  }
+  "ruby.rakeEnabled": false
 }

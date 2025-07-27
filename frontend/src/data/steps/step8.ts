@@ -6,7 +6,7 @@ export const step8: Step = {
   description: [],
   description1Style: {
     position: 'absolute',
-    top: '10%',
+    top: '100px',
     left: '50%',
     transform: 'translateX(-50%)',
     color: '#333',
@@ -24,7 +24,7 @@ export const step8: Step = {
   ],
   button1Style: {
     position: 'absolute',
-    top: '70%',
+    top: '420px',
     left: '20%',
     transform: 'translate(-50%, -50%)',
     minWidth: '15%'

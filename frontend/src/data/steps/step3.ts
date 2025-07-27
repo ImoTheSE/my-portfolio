@@ -6,7 +6,7 @@ export const step3: Step = {
   description: [],
   description1Style: {
     position: 'absolute',
-    top: '30%',
+    top: '100px',
     left: '50%',
     transform: 'translate(-50%, -50%)',
     color: '#333',
@@ -22,7 +22,7 @@ export const step3: Step = {
   ],
   button1Style: {
     position: 'absolute',
-    top: '70%',
+    top: '420px',
     left: '20%',
     transform: 'translate(-50%, -50%)',
     minWidth: '15%'
@@ -32,7 +32,7 @@ export const step3: Step = {
   ],
   button2Style: {
     position: 'absolute',
-    top: '70%',
+    top: '420px',
     left: '80%',
     transform: 'translate(-50%, -50%)',
     minWidth: '15%'
@@ -42,7 +42,7 @@ export const step3: Step = {
   ],
   button3Style: {
     position: 'absolute',
-    top: '70%',
+    top: '420px',
     left: '50%',
     transform: 'translate(-50%, -50%)',
     minWidth: '15%'
@@ -52,7 +52,7 @@ export const step3: Step = {
   ],
   button4Style: {
     position: 'absolute',
-    top: '80%',
+    top: '532px',
     left: '10%',
     transform: 'translate(-50%, -50%)',
     minWidth: '15%'
