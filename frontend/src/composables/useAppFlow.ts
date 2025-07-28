@@ -1,6 +1,7 @@
 import { ref, computed } from 'vue'
 import { appSteps } from '@/data/appSteps'
 import type { Step } from '@/types/Step'
+import { checkFormFieldsByStepId } from '@/utils/stepChecker'
 
 export const useAppFlow = () => {
   const currentStepIndex = ref(0)
@@ -51,6 +52,14 @@ export const useAppFlow = () => {
     if (index >= 0 && index < steps.value.length) {
       const current = currentStep.value
 
+      if (inputData) {
+        const isValid = checkFormFieldsByStepId(current.formFields, inputData, current.id)
+        if (!isValid) {
+          console.warn(`ステップ "${current.id}" の入力検証に失敗しました。`)
+          return // ❌ 中断！
+        }
+      }
+
       saveFilteredInput(current.formFields, inputData, current.id)
 
       currentStepIndex.value = index
@@ -82,6 +91,13 @@ export const useAppFlow = () => {
     goToStart: (data) => goToStep(0, data),
     goToChatGPT: (data) => {
       const current = currentStep.value
+      if (data) {
+        const isValid = checkFormFieldsByStepId(current.formFields, data, current.id)
+        if (!isValid) {
+          console.warn(`ステップ "${current.id}" の入力検証に失敗しました。`)
+          return // ❌ 中断！
+        }
+      }
       saveFilteredInput(current.formFields, data, current.id)
 
       router.push({

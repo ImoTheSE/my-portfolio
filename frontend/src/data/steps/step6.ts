@@ -39,7 +39,7 @@ export const step6: Step = {
     minWidth: '15%'
   },
   button3: [
-    { label: 'ログの読み方がわからない', actionKey: 'goToChatGPT' }
+    { label: 'ログの読み方をChatGPTに聞く', actionKey: 'goToChatGPT' }
   ],
   button3Style: {
     position: 'absolute',
