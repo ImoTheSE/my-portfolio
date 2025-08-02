@@ -1,6 +1,6 @@
 <!-- components/LogoutButton.vue -->
 <template>
-  <button @click="logout" class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">
+  <button @click="logout" class="btn">
     ログアウト
   </button>
 </template>
@@ -17,3 +17,15 @@ const logout = () => {
   router.push('/login')
 }
 </script>
+
+<style scoped>
+.btn {
+  border: none;
+  border-radius: 8px;
+  background-color: #3b82f6;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+</style>

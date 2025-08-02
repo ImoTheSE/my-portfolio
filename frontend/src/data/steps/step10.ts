@@ -27,7 +27,11 @@ export const step10: Step = {
     top: '420px',
     left: '20%',
     transform: 'translate(-50%, -50%)',
-    width: '25vw'
+    width: '25vw',
+    backgroundColor: '#3b82f6',
+    color: 'white',
+    cursor: 'pointer',
+    border: 'none'
   },
   button2: [
     { label: '最初に戻る', actionKey: 'goToStart' }
@@ -37,6 +41,10 @@ export const step10: Step = {
     top: '420px',
     left: '80%',
     transform: 'translate(-50%, -50%)',
-    width: '25vw'
+    width: '25vw',
+    backgroundColor: '#3b82f6',
+    color: 'white',
+    cursor: 'pointer',
+    border: 'none'
   }
 }

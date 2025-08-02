@@ -14,6 +14,7 @@ export const useChatGpt = () => {
     const from = route.query.from as string || 'appFrame'
     const fromStep = history.state?.fromStep ?? 0
     const stepID = appSteps[fromStep]?.id ?? ''
+    const config = useRuntimeConfig()
 
     goBack.value = () => {
       router.push({
@@ -24,7 +25,7 @@ export const useChatGpt = () => {
 
     const mainValue = loadAllStepInputs()
 
-    fetch('http://localhost:3000/api/chatgpt', {
+    fetch(`${config.public.apiBase}/api/chatgpt`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -35,6 +36,11 @@ export const useChatGpt = () => {
     })
       .then(res => res.json())
       .then(data => {
+        if (data.errors) {
+          answer.value = data.errors.join('\n')  // ✅ バリデーションエラーを表示して中断
+          return
+        }
+
         answer.value = data.answer
       })
       .catch(() => {

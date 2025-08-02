@@ -25,7 +25,11 @@ export const step3: Step = {
     top: '420px',
     left: '20%',
     transform: 'translate(-50%, -50%)',
-    minWidth: '15%'
+    minWidth: '15%',
+    backgroundColor: '#3b82f6',
+    color: 'white',
+    cursor: 'pointer',
+    border: 'none'
   },
   button2: [
     { label: 'ない', actionKey: 'goToNext' }
@@ -35,7 +39,11 @@ export const step3: Step = {
     top: '420px',
     left: '80%',
     transform: 'translate(-50%, -50%)',
-    minWidth: '15%'
+    minWidth: '15%',
+    backgroundColor: '#3b82f6',
+    color: 'white',
+    cursor: 'pointer',
+    border: 'none'
   },
   button3: [
     { label: 'ある', actionKey: 'goToNext3' }
@@ -45,7 +53,11 @@ export const step3: Step = {
     top: '420px',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    minWidth: '15%'
+    minWidth: '15%',
+    backgroundColor: '#3b82f6',
+    color: 'white',
+    cursor: 'pointer',
+    border: 'none'
   },
   button4: [
     { label: '戻る', actionKey: 'goToPrevious' }
@@ -55,6 +67,10 @@ export const step3: Step = {
     top: '532px',
     left: '10%',
     transform: 'translate(-50%, -50%)',
-    minWidth: '15%'
+    minWidth: '15%',
+    backgroundColor: '#3b82f6',
+    color: 'white',
+    cursor: 'pointer',
+    border: 'none'
   }
 }

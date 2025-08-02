@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       post 'auth/login'
       post 'auth/register'
+      delete 'auth/:username', to: 'auth#destroy_by_username'
 
       resources :question_answers, only: [:index, :destroy]
     end

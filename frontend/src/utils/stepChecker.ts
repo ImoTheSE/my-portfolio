@@ -19,6 +19,10 @@ export const checkFormFieldsByStepId = (
         errors.push('四文字以内で表現してください。')
       }
 
+      if (inputData['yearLevel'] && !isAllFullWidth(inputData['yearLevel'])) {
+        errors.push('全角のみ入力可能です')
+      }
+
       break
 
     case 's2':
@@ -31,7 +35,7 @@ export const checkFormFieldsByStepId = (
       }
 
       if (inputData['programmingLanguage'] && !isAlphanumeric(inputData['programmingLanguage'])) {
-        errors.push('プログラミング言語は半角英数字のみで入力してください')
+        errors.push('プログラミング言語は英数字・カンマ・スペースのみ入力可能です')
       }
 
       break
@@ -46,7 +50,7 @@ export const checkFormFieldsByStepId = (
       }
 
       if (inputData['IDEname'] && !isAlphanumeric(inputData['IDEname'])) {
-        errors.push('IDE名は半角英数字のみで入力してください')
+        errors.push('IDE名は半角英数字のみで入力可能です')
       }
 
       break
@@ -67,3 +71,6 @@ export const isAlphanumeric = (text: string): boolean => {
   return /^[a-zA-Z0-9, ]+$/.test(text)
 }
 
+export const isAllFullWidth = (text: string): boolean => {
+  return /^[^\x01-\x7E\xA1-\xDF]+$/.test(text)
+}

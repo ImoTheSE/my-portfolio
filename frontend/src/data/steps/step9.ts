@@ -26,7 +26,11 @@ export const step9: Step = {
     left: '20%',
     transform: 'translate(-50%, -50%)',
     height: '80px',
-    width: '25vw'
+    width: '25vw',
+    backgroundColor: '#3b82f6',
+    color: 'white',
+    cursor: 'pointer',
+    border: 'none'
   },
   button2: [
     { label: '仕様書を確認する必要が出た', actionKey: 'goToNext2' }
@@ -37,7 +41,11 @@ export const step9: Step = {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     height: '80px',
-    width: '25vw'
+    width: '25vw',
+    backgroundColor: '#3b82f6',
+    color: 'white',
+    cursor: 'pointer',
+    border: 'none'
   },
   button3: [
     { label: '修正が必要なのがわかった', actionKey: 'goToNext3' }
@@ -48,7 +56,11 @@ export const step9: Step = {
     left: '80%',
     transform: 'translate(-50%, -50%)',
     height: '80px',
-    width: '25vw'
+    width: '25vw',
+    backgroundColor: '#3b82f6',
+    color: 'white',
+    cursor: 'pointer',
+    border: 'none'
   },
   button4: [
     { label: '戻る', actionKey: 'goToHowToDebug' }
@@ -58,6 +70,10 @@ export const step9: Step = {
     top: '532px',
     left: '10%',
     transform: 'translate(-50%, -50%)',
-    minWidth: '15%'
+    minWidth: '15%',
+    backgroundColor: '#3b82f6',
+    color: 'white',
+    cursor: 'pointer',
+    border: 'none'
   }
 }

@@ -42,7 +42,11 @@ export const step7: Step = {
     top: '220px',
     left: '30%',
     transform: 'translate(-50%, -50%)',
-    minWidth: '15%'
+    minWidth: '15%',
+    backgroundColor: '#3b82f6',
+    color: 'white',
+    cursor: 'pointer',
+    border: 'none'
   },
   button2: [
     { label: '次へ', actionKey: 'goToHowToDebug' }
@@ -52,7 +56,11 @@ export const step7: Step = {
     top: '220px',
     left: '70%',
     transform: 'translate(-50%, -50%)',
-    minWidth: '15%'
+    minWidth: '15%',
+    backgroundColor: '#3b82f6',
+    color: 'white',
+    cursor: 'pointer',
+    border: 'none'
   },
   formFields: [
     { name: 'IDEname', label: '', type: 'text', placeholder: '例：VScode' }
@@ -72,7 +80,11 @@ export const step7: Step = {
     top: '420px',
     left: '70%',
     transform: 'translate(-50%, -50%)',
-    minWidth: '15%'
+    minWidth: '15%',
+    backgroundColor: '#3b82f6',
+    color: 'white',
+    cursor: 'pointer',
+    border: 'none'
   },
   button4: [
     { label: '戻る', actionKey: 'goToPrevious' }
@@ -82,6 +94,10 @@ export const step7: Step = {
     top: '532px',
     left: '10%',
     transform: 'translate(-50%, -50%)',
-    minWidth: '15%'
+    minWidth: '15%',
+    backgroundColor: '#3b82f6',
+    color: 'white',
+    cursor: 'pointer',
+    border: 'none'
   }
 }

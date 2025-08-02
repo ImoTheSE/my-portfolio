@@ -22,4 +22,13 @@ class Api::V1::AuthController < ApplicationController
       render json: { error: user.errors.full_messages }, status: :unprocessable_entity
     end
   end
+
+  def destroy_by_username
+    user = User.find_by(username: params[:username])
+    if user&.destroy
+      head :no_content
+    else
+      render json: { error: '削除できませんでした' }, status: :unprocessable_entity
+    end
+  end
 end

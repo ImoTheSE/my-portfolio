@@ -25,7 +25,11 @@ export const step6: Step = {
     top: '532px',
     left: '20%',
     transform: 'translate(-50%, -50%)',
-    minWidth: '15%'
+    minWidth: '15%',
+    backgroundColor: '#3b82f6',
+    color: 'white',
+    cursor: 'pointer',
+    border: 'none'
   },
   button2: [
     { label: 'エラー箇所を特定した', actionKey: 'goToNext' }
@@ -36,7 +40,11 @@ export const step6: Step = {
     left: '30%',
     transform: 'translate(-50%, -50%)',
     height: '50px',
-    minWidth: '15%'
+    minWidth: '15%',
+    backgroundColor: '#3b82f6',
+    color: 'white',
+    cursor: 'pointer',
+    border: 'none'
   },
   button3: [
     { label: 'ログの読み方をChatGPTに聞く', actionKey: 'goToChatGPT' }
@@ -47,6 +55,10 @@ export const step6: Step = {
     left: '70%',
     transform: 'translate(-50%, -50%)',
     height: '50px',
-    minWidth: '15%'
+    minWidth: '15%',
+    backgroundColor: '#3b82f6',
+    color: 'white',
+    cursor: 'pointer',
+    border: 'none'
   }
 }

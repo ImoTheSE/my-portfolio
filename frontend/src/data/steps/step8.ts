@@ -27,6 +27,10 @@ export const step8: Step = {
     top: '420px',
     left: '20%',
     transform: 'translate(-50%, -50%)',
-    minWidth: '15%'
+    minWidth: '15%',
+    backgroundColor: '#3b82f6',
+    color: 'white',
+    cursor: 'pointer',
+    border: 'none'
   }
 }

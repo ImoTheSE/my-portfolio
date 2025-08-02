@@ -1,5 +1,5 @@
 templates:
   s5: "{{yearLevel}}のSEにわかるように、丁寧に既存システムのログの出力先を探す方法を教えて"
-  s6: "{{yearLevel}}のSEにわかるように、{{programmingLanguage}}で作られたシステムのログのどこを見れば原因がわかるか教えて。"
-  s7: "{{yearLevel}}のSEにわかるように、{{programmingLanguage}}の主流なデバッグ方法を教えて。必要なら{{IDEname}}のデバッグの起動方法とデバッグに役立つ機能が知りたい。"
+  s6: "{{yearLevel}}のSEです。{{programmingLanguage}}で作られたシステムで出力されたログを見つけたけど、どこを見れば原因がわかるか教えて。"
+  s7: "{{yearLevel}}のSEにわかるように、{{programmingLanguage}}で作られた既存システム（つまり勝手に環境をいじれない）の主流なデバッグ方法を教えて。必要なら{{IDEname}}のデバッグの起動方法とデバッグに役立つ機能が知りたい。"
 default: "質問内容が不明です。"

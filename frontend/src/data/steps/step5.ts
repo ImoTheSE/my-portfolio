@@ -42,7 +42,11 @@ export const step5: Step = {
     top: '280px',
     left: '30%',
     transform: 'translate(-50%, -50%)',
-    minWidth: '15%'
+    minWidth: '15%',
+    backgroundColor: '#3b82f6',
+    color: 'white',
+    cursor: 'pointer',
+    border: 'none'
   },
   button2: [
     { label: '戻る', actionKey: 'goToPrevious2' }
@@ -52,6 +56,10 @@ export const step5: Step = {
     top: '420px',
     left: '80%',
     transform: 'translate(-50%, -50%)',
-    minWidth: '15%'
+    minWidth: '15%',
+    backgroundColor: '#3b82f6',
+    color: 'white',
+    cursor: 'pointer',
+    border: 'none'
   }
 }

@@ -1,0 +1,12 @@
+# 環境変数
+.env
+.env.*
+
+# エディタ・OS設定
+.DS_Store
+.idea/
+.vscode/
+
+# デプロイ設定（任意）
+.vercel/
+.render/
