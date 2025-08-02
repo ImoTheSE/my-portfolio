@@ -1,4 +1,9 @@
 {
   "ruby.useBundler": true,
-  "ruby.rakeEnabled": false
+  "ruby.rakeEnabled": false,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.fixAll.eslint": true
+  }
 }

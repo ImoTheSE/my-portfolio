@@ -1,5 +1,4 @@
 import { ref, onMounted } from 'vue'
-import type { Router } from 'vue-router'
 
 export const useHowToDebug = () => {
   const handleLeftClick = ref<() => void>(() => {})
@@ -8,14 +7,14 @@ export const useHowToDebug = () => {
   onMounted(() => {
     const route = useRoute()
     const router = useRouter()
-    const from = route.query.from as string || 'appFrame'
+    const from = (route.query.from as string) || 'appFrame'
 
     handleLeftClick.value = () => {
       router.push({
         path: `/${from}`,
         state: {
-          restoreStep: 6
-        }
+          restoreStep: 6,
+        },
       })
     }
 
@@ -23,14 +22,14 @@ export const useHowToDebug = () => {
       router.push({
         path: `/${from}`,
         state: {
-          restoreStep: 8
-        }
+          restoreStep: 8,
+        },
       })
     }
   })
 
   return {
     handleLeftClick,
-    handleRightClick
+    handleRightClick,
   }
 }

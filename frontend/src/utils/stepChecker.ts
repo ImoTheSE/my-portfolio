@@ -26,7 +26,10 @@ export const checkFormFieldsByStepId = (
       break
 
     case 's2':
-      if (!inputData['programmingLanguage'] || inputData['programmingLanguage'].trim() === '') {
+      if (
+        !inputData['programmingLanguage'] ||
+        inputData['programmingLanguage'].trim() === ''
+      ) {
         errors.push('未入力です')
       }
 
@@ -34,8 +37,13 @@ export const checkFormFieldsByStepId = (
         errors.push('50文字以内で表現してください。')
       }
 
-      if (inputData['programmingLanguage'] && !isAlphanumeric(inputData['programmingLanguage'])) {
-        errors.push('プログラミング言語は英数字・カンマ・スペースのみ入力可能です')
+      if (
+        inputData['programmingLanguage'] &&
+        !isAlphanumeric(inputData['programmingLanguage'])
+      ) {
+        errors.push(
+          'プログラミング言語は英数字・カンマ・スペースのみ入力可能です'
+        )
       }
 
       break
@@ -54,13 +62,13 @@ export const checkFormFieldsByStepId = (
       }
 
       break
-    
+
     default:
       break
   }
 
   if (errors.length > 0) {
-    alert(errors.join('\n'))  // ← ★ここがポイント：複数行で表示！
+    alert(errors.join('\n')) // ← ★ここがポイント：複数行で表示！
     return false
   }
 
@@ -72,5 +80,5 @@ export const isAlphanumeric = (text: string): boolean => {
 }
 
 export const isAllFullWidth = (text: string): boolean => {
-  return /^[^\x01-\x7E\xA1-\xDF]+$/.test(text)
+  return /^[^\u0020-\u007E\uFF61-\uFF9F]+$/.test(text)
 }

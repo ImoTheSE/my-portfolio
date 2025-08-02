@@ -17,7 +17,7 @@ export const step7: Step = {
     wordBreak: 'break-word',
     overflowWrap: 'break-word',
     minWidth: '90vw',
-    whitespace: 'pre-wrap'
+    whitespace: 'pre-wrap',
   },
   description2Style: {
     position: 'absolute',
@@ -32,11 +32,9 @@ export const step7: Step = {
     wordBreak: 'break-word',
     overflowWrap: 'break-word',
     minWidth: '90vw',
-    whitespace: 'pre-wrap'
+    whitespace: 'pre-wrap',
   },
-  button1: [
-    { label: 'IDE、デバッグって何？', actionKey: 'goToNext' }
-  ],
+  button1: [{ label: 'IDE、デバッグって何？', actionKey: 'goToNext' }],
   button1Style: {
     position: 'absolute',
     top: '220px',
@@ -46,11 +44,9 @@ export const step7: Step = {
     backgroundColor: '#3b82f6',
     color: 'white',
     cursor: 'pointer',
-    border: 'none'
+    border: 'none',
   },
-  button2: [
-    { label: '次へ', actionKey: 'goToHowToDebug' }
-  ],
+  button2: [{ label: '次へ', actionKey: 'goToHowToDebug' }],
   button2Style: {
     position: 'absolute',
     top: '220px',
@@ -60,20 +56,20 @@ export const step7: Step = {
     backgroundColor: '#3b82f6',
     color: 'white',
     cursor: 'pointer',
-    border: 'none'
+    border: 'none',
   },
   formFields: [
-    { name: 'IDEname', label: '', type: 'text', placeholder: '例：VScode' }
+    { name: 'IDEname', label: '', type: 'text', placeholder: '例：VScode' },
   ],
   formStyle: {
     position: 'absolute',
     top: '420px',
     left: '30%',
     transform: 'translate(-50%, -50%)',
-    minWidth: '20%'
+    minWidth: '20%',
   },
   button3: [
-    { label: 'chatGPTにデバッグのやり方を聞く', actionKey: 'goToChatGPT' }
+    { label: 'chatGPTにデバッグのやり方を聞く', actionKey: 'goToChatGPT' },
   ],
   button3Style: {
     position: 'absolute',
@@ -84,11 +80,9 @@ export const step7: Step = {
     backgroundColor: '#3b82f6',
     color: 'white',
     cursor: 'pointer',
-    border: 'none'
+    border: 'none',
   },
-  button4: [
-    { label: '戻る', actionKey: 'goToPrevious' }
-  ],
+  button4: [{ label: '戻る', actionKey: 'goToPrevious' }],
   button4Style: {
     position: 'absolute',
     top: '532px',
@@ -98,6 +92,6 @@ export const step7: Step = {
     backgroundColor: '#3b82f6',
     color: 'white',
     cursor: 'pointer',
-    border: 'none'
-  }
+    border: 'none',
+  },
 }

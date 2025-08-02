@@ -6,5 +6,10 @@
 
 <script setup lang="ts">
 import type { StepButton } from '@/types/Step'
+
 defineProps<{ button: StepButton }>()
+
+defineEmits<{
+  (e: 'action'): void
+}>()
 </script>

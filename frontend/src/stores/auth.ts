@@ -9,13 +9,13 @@ export const useAuthStore = defineStore('auth', {
     async login(username: string, password: string) {
       const config = useRuntimeConfig()
 
-      const { data, error } = await useFetch<{ token: string; is_admin: boolean }>(
-        `${config.public.apiBase}/api/v1/auth/login`,
-        {
-          method: 'POST',
-          body: { username, password }
-        }
-      )
+      const { data, error } = await useFetch<{
+        token: string
+        is_admin: boolean
+      }>(`${config.public.apiBase}/api/v1/auth/login`, {
+        method: 'POST',
+        body: { username, password },
+      })
 
       if (error.value) throw error.value
 
@@ -30,7 +30,7 @@ export const useAuthStore = defineStore('auth', {
     logout() {
       this.token = ''
       this.isAdmin = false
-    }
+    },
   },
-  persist: true
+  persist: true,
 })

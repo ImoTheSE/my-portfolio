@@ -17,7 +17,7 @@ export const step5: Step = {
     wordBreak: 'break-word',
     overflowWrap: 'break-word',
     minWidth: '90vw',
-    whitespace: 'pre-wrap'
+    whitespace: 'pre-wrap',
   },
   description2Style: {
     position: 'absolute',
@@ -32,11 +32,9 @@ export const step5: Step = {
     wordBreak: 'break-word',
     overflowWrap: 'break-word',
     minWidth: '90vw',
-    whitespace: 'pre-wrap'
+    whitespace: 'pre-wrap',
   },
-  button1: [
-    { label: 'chatGPTでログの探し方を聞く', actionKey: 'goToChatGPT' }
-  ],
+  button1: [{ label: 'chatGPTでログの探し方を聞く', actionKey: 'goToChatGPT' }],
   button1Style: {
     position: 'absolute',
     top: '280px',
@@ -46,11 +44,9 @@ export const step5: Step = {
     backgroundColor: '#3b82f6',
     color: 'white',
     cursor: 'pointer',
-    border: 'none'
+    border: 'none',
   },
-  button2: [
-    { label: '戻る', actionKey: 'goToPrevious2' }
-  ],
+  button2: [{ label: '戻る', actionKey: 'goToPrevious2' }],
   button2Style: {
     position: 'absolute',
     top: '420px',
@@ -60,6 +56,6 @@ export const step5: Step = {
     backgroundColor: '#3b82f6',
     color: 'white',
     cursor: 'pointer',
-    border: 'none'
-  }
+    border: 'none',
+  },
 }

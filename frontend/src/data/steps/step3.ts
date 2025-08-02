@@ -15,11 +15,9 @@ export const step3: Step = {
     lineHeight: '1.5',
     textAlign: 'center',
     wordBreak: 'break-word',
-    overflowWrap: 'break-word'
+    overflowWrap: 'break-word',
   },
-  button1: [
-    { label: 'ログって何？', actionKey: 'goToNext2' }
-  ],
+  button1: [{ label: 'ログって何？', actionKey: 'goToNext2' }],
   button1Style: {
     position: 'absolute',
     top: '420px',
@@ -29,11 +27,9 @@ export const step3: Step = {
     backgroundColor: '#3b82f6',
     color: 'white',
     cursor: 'pointer',
-    border: 'none'
+    border: 'none',
   },
-  button2: [
-    { label: 'ない', actionKey: 'goToNext' }
-  ],
+  button2: [{ label: 'ない', actionKey: 'goToNext' }],
   button2Style: {
     position: 'absolute',
     top: '420px',
@@ -43,11 +39,9 @@ export const step3: Step = {
     backgroundColor: '#3b82f6',
     color: 'white',
     cursor: 'pointer',
-    border: 'none'
+    border: 'none',
   },
-  button3: [
-    { label: 'ある', actionKey: 'goToNext3' }
-  ],
+  button3: [{ label: 'ある', actionKey: 'goToNext3' }],
   button3Style: {
     position: 'absolute',
     top: '420px',
@@ -57,11 +51,9 @@ export const step3: Step = {
     backgroundColor: '#3b82f6',
     color: 'white',
     cursor: 'pointer',
-    border: 'none'
+    border: 'none',
   },
-  button4: [
-    { label: '戻る', actionKey: 'goToPrevious' }
-  ],
+  button4: [{ label: '戻る', actionKey: 'goToPrevious' }],
   button4Style: {
     position: 'absolute',
     top: '532px',
@@ -71,6 +63,6 @@ export const step3: Step = {
     backgroundColor: '#3b82f6',
     color: 'white',
     cursor: 'pointer',
-    border: 'none'
-  }
+    border: 'none',
+  },
 }

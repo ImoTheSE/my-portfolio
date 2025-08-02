@@ -16,9 +16,12 @@ export function useQuestionSearch() {
   const config = useRuntimeConfig()
 
   const search = async () => {
-    const { data } = await useFetch<QuestionAnswer[]>(`${config.public.apiBase}/api/v1/question_answers`, {
-      query: { q: query.value }
-    })
+    const { data } = await useFetch<QuestionAnswer[]>(
+      `${config.public.apiBase}/api/v1/question_answers`,
+      {
+        query: { q: query.value },
+      }
+    )
 
     if (Array.isArray(data.value)) {
       results.value = data.value
@@ -39,12 +42,15 @@ export function useQuestionSearch() {
     const confirmed = window.confirm('本当に削除しますか？')
     if (!confirmed) return
 
-    const { error } = await useFetch(`${config.public.apiBase}/api/v1/question_answers/${id}`, {
-      method: 'DELETE'
-    })
+    const { error } = await useFetch(
+      `${config.public.apiBase}/api/v1/question_answers/${id}`,
+      {
+        method: 'DELETE',
+      }
+    )
 
     if (!error.value) {
-      results.value = results.value.filter(item => item.id !== id)
+      results.value = results.value.filter((item) => item.id !== id)
     } else {
       alert('削除に失敗しました')
     }
@@ -57,6 +63,6 @@ export function useQuestionSearch() {
     search,
     toggleExpand,
     truncate,
-    deleteItem
+    deleteItem,
   }
 }

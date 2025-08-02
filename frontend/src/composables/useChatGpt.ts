@@ -1,4 +1,3 @@
-
 import { useRoute, useRouter } from 'vue-router'
 import { appSteps } from '@/data/appSteps'
 
@@ -11,7 +10,7 @@ export const useChatGpt = () => {
     const route = useRoute()
     const router = useRouter()
 
-    const from = route.query.from as string || 'appFrame'
+    const from = (route.query.from as string) || 'appFrame'
     const fromStep = history.state?.fromStep ?? 0
     const stepID = appSteps[fromStep]?.id ?? ''
     const config = useRuntimeConfig()
@@ -19,7 +18,7 @@ export const useChatGpt = () => {
     goBack.value = () => {
       router.push({
         path: `/${from}`,
-        state: { restoreStep: fromStep }
+        state: { restoreStep: fromStep },
       })
     }
 
@@ -30,14 +29,14 @@ export const useChatGpt = () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         inputs: mainValue,
-        from_step: stepID || 'default'
+        from_step: stepID || 'default',
       }),
-      credentials: 'include'
+      credentials: 'include',
     })
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         if (data.errors) {
-          answer.value = data.errors.join('\n')  // ✅ バリデーションエラーを表示して中断
+          answer.value = data.errors.join('\n') // ✅ バリデーションエラーを表示して中断
           return
         }
 
@@ -54,6 +53,6 @@ export const useChatGpt = () => {
   return {
     answer,
     loading,
-    goBack
+    goBack,
   }
 }

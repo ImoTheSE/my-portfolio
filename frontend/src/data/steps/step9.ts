@@ -15,10 +15,10 @@ export const step9: Step = {
     lineHeight: '1.5',
     textAlign: 'center',
     wordBreak: 'break-word',
-    overflowWrap: 'break-word'
+    overflowWrap: 'break-word',
   },
   button1: [
-    { label: '正しく実行し直したら正常になった', actionKey: 'goToNext' }
+    { label: '正しく実行し直したら正常になった', actionKey: 'goToNext' },
   ],
   button1Style: {
     position: 'absolute',
@@ -30,11 +30,9 @@ export const step9: Step = {
     backgroundColor: '#3b82f6',
     color: 'white',
     cursor: 'pointer',
-    border: 'none'
+    border: 'none',
   },
-  button2: [
-    { label: '仕様書を確認する必要が出た', actionKey: 'goToNext2' }
-  ],
+  button2: [{ label: '仕様書を確認する必要が出た', actionKey: 'goToNext2' }],
   button2Style: {
     position: 'absolute',
     top: '420px',
@@ -45,11 +43,9 @@ export const step9: Step = {
     backgroundColor: '#3b82f6',
     color: 'white',
     cursor: 'pointer',
-    border: 'none'
+    border: 'none',
   },
-  button3: [
-    { label: '修正が必要なのがわかった', actionKey: 'goToNext3' }
-  ],
+  button3: [{ label: '修正が必要なのがわかった', actionKey: 'goToNext3' }],
   button3Style: {
     position: 'absolute',
     top: '420px',
@@ -60,11 +56,9 @@ export const step9: Step = {
     backgroundColor: '#3b82f6',
     color: 'white',
     cursor: 'pointer',
-    border: 'none'
+    border: 'none',
   },
-  button4: [
-    { label: '戻る', actionKey: 'goToHowToDebug' }
-  ],
+  button4: [{ label: '戻る', actionKey: 'goToHowToDebug' }],
   button4Style: {
     position: 'absolute',
     top: '532px',
@@ -74,6 +68,6 @@ export const step9: Step = {
     backgroundColor: '#3b82f6',
     color: 'white',
     cursor: 'pointer',
-    border: 'none'
-  }
+    border: 'none',
+  },
 }

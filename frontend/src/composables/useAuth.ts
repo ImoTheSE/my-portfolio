@@ -15,6 +15,7 @@ export function useAuth() {
       await auth.login(username.value, password.value)
       router.push(auth.isAdmin ? '/admin' : '/appFrame')
     } catch (e) {
+      console.error('ログイン失敗:', e)
       alert('ログイン失敗')
     }
   }
@@ -27,12 +28,13 @@ export function useAuth() {
         headers: { 'Content-Type': 'application/json' },
         body: {
           username: username.value,
-          password: password.value
-        }
+          password: password.value,
+        },
       })
       alert('登録完了。ログインしてください')
       router.push('/login')
     } catch (e) {
+      console.error('登録失敗:', e)
       alert('登録失敗')
     }
   }
@@ -49,12 +51,13 @@ export function useAuth() {
       await $fetch(`/api/v1/auth/${encodeURIComponent(username.value)}`, {
         baseURL: config.public.apiBase,
         method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' }
+        headers: { 'Content-Type': 'application/json' },
       })
       alert('削除完了')
       username.value = ''
       password.value = ''
     } catch (e) {
+      console.error('削除失敗:', e)
       alert('削除失敗')
     }
   }
@@ -64,6 +67,6 @@ export function useAuth() {
     password,
     onLogin,
     onRegister,
-    onDelete
+    onDelete,
   }
 }

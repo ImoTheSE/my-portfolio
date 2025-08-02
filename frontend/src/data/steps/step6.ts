@@ -15,11 +15,9 @@ export const step6: Step = {
     lineHeight: '1.5',
     textAlign: 'center',
     wordBreak: 'break-word',
-    overflowWrap: 'break-word'
+    overflowWrap: 'break-word',
   },
-  button1: [
-    { label: '戻る', actionKey: 'goToPrevious3' }
-  ],
+  button1: [{ label: '戻る', actionKey: 'goToPrevious3' }],
   button1Style: {
     position: 'absolute',
     top: '532px',
@@ -29,11 +27,9 @@ export const step6: Step = {
     backgroundColor: '#3b82f6',
     color: 'white',
     cursor: 'pointer',
-    border: 'none'
+    border: 'none',
   },
-  button2: [
-    { label: 'エラー箇所を特定した', actionKey: 'goToNext' }
-  ],
+  button2: [{ label: 'エラー箇所を特定した', actionKey: 'goToNext' }],
   button2Style: {
     position: 'absolute',
     top: '420px',
@@ -44,11 +40,9 @@ export const step6: Step = {
     backgroundColor: '#3b82f6',
     color: 'white',
     cursor: 'pointer',
-    border: 'none'
+    border: 'none',
   },
-  button3: [
-    { label: 'ログの読み方をChatGPTに聞く', actionKey: 'goToChatGPT' }
-  ],
+  button3: [{ label: 'ログの読み方をChatGPTに聞く', actionKey: 'goToChatGPT' }],
   button3Style: {
     position: 'absolute',
     top: '420px',
@@ -59,6 +53,6 @@ export const step6: Step = {
     backgroundColor: '#3b82f6',
     color: 'white',
     cursor: 'pointer',
-    border: 'none'
-  }
+    border: 'none',
+  },
 }

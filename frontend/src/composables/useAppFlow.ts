@@ -7,13 +7,16 @@ export const useAppFlow = () => {
   const currentStepIndex = ref(0)
   const steps = ref<Step[]>(appSteps)
   const router = useRouter()
-  const route = useRoute()
 
   const currentStep = computed(() => steps.value[currentStepIndex.value])
 
   onMounted(() => {
     const stepFromState = history.state?.restoreStep
-    if (typeof stepFromState === 'number' && stepFromState >= 0 && stepFromState < steps.value.length) {
+    if (
+      typeof stepFromState === 'number' &&
+      stepFromState >= 0 &&
+      stepFromState < steps.value.length
+    ) {
       currentStepIndex.value = stepFromState
     }
   })
@@ -53,7 +56,11 @@ export const useAppFlow = () => {
       const current = currentStep.value
 
       if (inputData) {
-        const isValid = checkFormFieldsByStepId(current.formFields, inputData, current.id)
+        const isValid = checkFormFieldsByStepId(
+          current.formFields,
+          inputData,
+          current.id
+        )
         if (!isValid) {
           console.warn(`ステップ "${current.id}" の入力検証に失敗しました。`)
           return // ❌ 中断！
@@ -80,8 +87,10 @@ export const useAppFlow = () => {
     return parsed
   }
 
-
-  const actionHandlers: Record<string, (inputData?: Record<string, string>) => void> = {
+  const actionHandlers: Record<
+    string,
+    (inputData?: Record<string, string>) => void
+  > = {
     goToNext: (data) => goToStep(currentStepIndex.value + 1, data),
     goToNext2: (data) => goToStep(currentStepIndex.value + 2, data),
     goToNext3: (data) => goToStep(currentStepIndex.value + 3, data),
@@ -92,7 +101,11 @@ export const useAppFlow = () => {
     goToChatGPT: (data) => {
       const current = currentStep.value
       if (data) {
-        const isValid = checkFormFieldsByStepId(current.formFields, data, current.id)
+        const isValid = checkFormFieldsByStepId(
+          current.formFields,
+          data,
+          current.id
+        )
         if (!isValid) {
           console.warn(`ステップ "${current.id}" の入力検証に失敗しました。`)
           return // ❌ 中断！
@@ -103,36 +116,38 @@ export const useAppFlow = () => {
       router.push({
         path: '/chatgpt',
         query: {
-          from: 'appFrame'
+          from: 'appFrame',
         },
         state: {
-          fromStep: currentStepIndex.value
-        }
+          fromStep: currentStepIndex.value,
+        },
       })
     },
     goToHowToDebug: () =>
       router.push({
         path: '/howToDebug',
         query: {
-          from: 'appFrame'
+          from: 'appFrame',
         },
         state: {
-          fromStep: currentStepIndex.value
-        }
-      })
+          fromStep: currentStepIndex.value,
+        },
+      }),
   }
 
-  const handleAction = (actionKey: string, inputData?: Record<string, string>) => {
-  const handler = actionHandlers[actionKey]
-  if (handler) handler(inputData)
-  else console.warn(`未定義のアクション: ${actionKey}`)
-}
-
+  const handleAction = (
+    actionKey: string,
+    inputData?: Record<string, string>
+  ) => {
+    const handler = actionHandlers[actionKey]
+    if (handler) handler(inputData)
+    else console.warn(`未定義のアクション: ${actionKey}`)
+  }
 
   return {
     currentStep,
     handleAction,
     goToStep,
-    getSavedInput
+    getSavedInput,
   }
 }

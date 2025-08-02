@@ -1,5 +1,5 @@
 <template>
-  <component :is="currentComponent" :step="currentStep" :onAction="onAction" />
+  <component :is="currentComponent" :step="currentStep" :on-action="onAction" />
 </template>
 
 <script setup lang="ts">
@@ -7,7 +7,7 @@ import { useAppFlow } from '@/composables/useAppFlow'
 import { shallowRef, watchEffect } from 'vue'
 
 definePageMeta({
-  middleware: ['auth']
+  middleware: ['auth'],
 })
 
 const { currentStep, handleAction } = useAppFlow()
@@ -19,9 +19,13 @@ const onAction = (key: string, formData?: Record<string, string>) => {
 
 watchEffect(async () => {
   if (currentStep.value.layoutComponent) {
-    currentComponent.value = (await import(`@/components/Flow/${currentStep.value.layoutComponent}.vue`)).default
+    currentComponent.value = (
+      await import(`@/components/Flow/${currentStep.value.layoutComponent}.vue`)
+    ).default
   } else {
-    currentComponent.value = (await import('@/components/Flow/StepLayout.vue')).default
+    currentComponent.value = (
+      await import('@/components/Flow/StepLayout.vue')
+    ).default
   }
 })
 </script>

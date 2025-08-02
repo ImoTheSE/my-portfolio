@@ -1,8 +1,6 @@
 <!-- components/LogoutButton.vue -->
 <template>
-  <button @click="logout" class="btn">
-    ログアウト
-  </button>
+  <button class="btn" @click="logout">ログアウト</button>
 </template>
 
 <script setup lang="ts">
@@ -27,5 +25,4 @@ const logout = () => {
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
-
 </style>

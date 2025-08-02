@@ -36,8 +36,8 @@ export interface FormStyleDefinition {
 
 export interface descriptionsStyleDefinition {
   position?: 'absolute' | 'relative' | 'fixed' | 'sticky' | 'static'
-  top?: string   // 例: '50%'
-  left?: string  // 例: '50%'
+  top?: string // 例: '50%'
+  left?: string // 例: '50%'
   transform?: string // 例: 'translate(-50%, -50%)'
   color?: string
   fontSize?: string
@@ -50,13 +50,13 @@ export interface descriptionsStyleDefinition {
   maxWidth?: string
   whitespace?: string
   display?: string
-  alignitems?: string      /* ← 縦方向の中央揃え */
-  justifycontent?: string  /* ← 横方向の中央揃え */
+  alignitems?: string /* ← 縦方向の中央揃え */
+  justifycontent?: string /* ← 横方向の中央揃え */
   [key: string]: string | undefined
 }
 
 export interface Step {
-  id:string
+  id: string
   title: string
   description: string[]
   description1Style?: descriptionsStyleDefinition
@@ -68,8 +68,8 @@ export interface Step {
   formFields?: StepFormField[]
   formStyle?: FormStyleDefinition
   layoutComponent?: string //components/FlowのどのStepLayoutを使うかの設定
-  button1Style?: ButtonStyleDefinition  // 個別に直接持つ
-  button2Style?: ButtonStyleDefinition  // 個別に直接持つ
-  button3Style?: ButtonStyleDefinition  // 個別に直接持つ
-  button4Style?: ButtonStyleDefinition  // 個別に直接持つ
+  button1Style?: ButtonStyleDefinition // 個別に直接持つ
+  button2Style?: ButtonStyleDefinition // 個別に直接持つ
+  button3Style?: ButtonStyleDefinition // 個別に直接持つ
+  button4Style?: ButtonStyleDefinition // 個別に直接持つ
 }

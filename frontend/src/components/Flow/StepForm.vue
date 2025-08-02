@@ -4,19 +4,19 @@
       <label :for="field.name">{{ field.label }}</label>
       <input
         v-if="field.type !== 'textarea'"
+        :id="field.name"
+        v-model="localData[field.name]"
         :type="field.type"
         :name="field.name"
-        :id="field.name"
         :placeholder="field.placeholder"
-        v-model="localData[field.name]"
         :style="formStyle"
       />
       <textarea
         v-else
-        :name="field.name"
         :id="field.name"
-        :placeholder="field.placeholder"
         v-model="localData[field.name]"
+        :name="field.name"
+        :placeholder="field.placeholder"
         :style="formStyle"
       ></textarea>
     </div>
@@ -37,12 +37,19 @@ const emit = defineEmits(['update:formData'])
 
 const localData = ref({ ...props.formData })
 
-watch(() => props.formData, (newVal) => {
-  localData.value = { ...newVal }
-}, { immediate: true })
+watch(
+  () => props.formData,
+  (newVal) => {
+    localData.value = { ...newVal }
+  },
+  { immediate: true }
+)
 
-watch(localData, (newVal) => {
-  emit('update:formData', newVal)
-}, { deep: true })
+watch(
+  localData,
+  (newVal) => {
+    emit('update:formData', newVal)
+  },
+  { deep: true }
+)
 </script>
-

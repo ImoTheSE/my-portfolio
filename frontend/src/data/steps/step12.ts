@@ -17,11 +17,9 @@ export const step12: Step = {
     wordBreak: 'break-word',
     overflowWrap: 'break-word',
     minWidth: '90vw',
-    whitespace: 'pre-wrap'
+    whitespace: 'pre-wrap',
   },
-  button1: [
-    { label: '戻る', actionKey: 'goToPrevious3' }
-  ],
+  button1: [{ label: '戻る', actionKey: 'goToPrevious3' }],
   button1Style: {
     position: 'absolute',
     top: '420px',
@@ -31,11 +29,9 @@ export const step12: Step = {
     backgroundColor: '#3b82f6',
     color: 'white',
     cursor: 'pointer',
-    border: 'none'
+    border: 'none',
   },
-  button2: [
-    { label: '最初に戻る', actionKey: 'goToStart' }
-  ],
+  button2: [{ label: '最初に戻る', actionKey: 'goToStart' }],
   button2Style: {
     position: 'absolute',
     top: '420px',
@@ -45,6 +41,6 @@ export const step12: Step = {
     backgroundColor: '#3b82f6',
     color: 'white',
     cursor: 'pointer',
-    border: 'none'
-  }
+    border: 'none',
+  },
 }

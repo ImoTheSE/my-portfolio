@@ -15,21 +15,24 @@ export const step2: Step = {
     lineHeight: '1.5',
     textAlign: 'center',
     wordBreak: 'break-word',
-    overflowWrap: 'break-word'
+    overflowWrap: 'break-word',
   },
   formFields: [
-    { name: 'programmingLanguage', label: '', type: 'text', placeholder: '(半角英数のみ可)例：javascript,ruby' }
+    {
+      name: 'programmingLanguage',
+      label: '',
+      type: 'text',
+      placeholder: '(半角英数のみ可)例：javascript,ruby',
+    },
   ],
   formStyle: {
     position: 'absolute',
     top: '220px',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    minWidth: '60%'
+    minWidth: '60%',
   },
-  button1: [
-    { label: '戻る', actionKey: 'goToPrevious' }
-  ],
+  button1: [{ label: '戻る', actionKey: 'goToPrevious' }],
   button1Style: {
     position: 'absolute',
     top: '420px',
@@ -39,11 +42,9 @@ export const step2: Step = {
     backgroundColor: '#3b82f6',
     color: 'white',
     cursor: 'pointer',
-    border: 'none'
+    border: 'none',
   },
-  button2: [
-    { label: '次へ', actionKey: 'goToNext' }
-  ],
+  button2: [{ label: '次へ', actionKey: 'goToNext' }],
   button2Style: {
     position: 'absolute',
     top: '420px',
@@ -53,6 +54,6 @@ export const step2: Step = {
     backgroundColor: '#3b82f6',
     color: 'white',
     cursor: 'pointer',
-    border: 'none'
-  }
+    border: 'none',
+  },
 }

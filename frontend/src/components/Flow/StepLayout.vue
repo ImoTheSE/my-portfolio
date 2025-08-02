@@ -5,9 +5,10 @@
     <h1>{{ step.title }}</h1>
     <LogoutButton class="absolute top-4 right-4" />
     <div class="step-description">
-      <p v-for="(descGroup, i) in descriptionGroups"
-      :key="i" 
-      :style="descGroup.style"
+      <p
+        v-for="(descGroup, i) in descriptionGroups"
+        :key="i"
+        :style="descGroup.style"
       >
         <template v-for="(line, j) in descGroup.lines" :key="j">
           {{ line }}<br v-if="j !== descGroup.lines.length - 1" />
@@ -15,26 +16,28 @@
       </p>
     </div>
 
-
-    <StepForm v-if="step.formFields" 
-      :fields="step.formFields" 
-      :formStyle="step.formStyle"
+    <StepForm
+      v-if="step.formFields"
       v-model:formData="formData"
+      :fields="step.formFields"
+      :form-style="step.formStyle"
     />
 
     <div
-    class="button-area"
-    v-for="(buttonGroup, groupIndex) in buttonGroups"
-    :key="groupIndex"
+      v-for="(buttonGroup, groupIndex) in buttonGroups"
+      :key="groupIndex"
+      class="button-area"
     >
       <StepButton
         v-for="(btn, index) in buttonGroup.list"
         :key="index"
         :button="btn"
         :style="buttonGroup.style"
-        @action="() => {
-          props.onAction(btn.actionKey, formData)
-        }"
+        @action="
+          () => {
+            props.onAction(btn.actionKey, formData)
+          }
+        "
       />
     </div>
   </div>
@@ -59,14 +62,21 @@ const props = defineProps<{
   onAction: (key: string, formData?: Record<string, string>) => void
 }>()
 
-const buttonGroups = computed(() => {
+type ButtonGroup = {
+  list: string[]
+  style: Record<string, string>
+}
+
+const buttonGroups = computed<ButtonGroup[]>(() => {
   if (!props.step) return []
-  return [
-    props.step.button1 ? { list: props.step.button1, style: props.step.button1Style } : null,
-    props.step.button2 ? { list: props.step.button2, style: props.step.button2Style } : null,
-    props.step.button3 ? { list: props.step.button3, style: props.step.button3Style } : null,
-    props.step.button4 ? { list: props.step.button4, style: props.step.button4Style } : null
-  ].filter((group): group is { list: any; style: any } => group !== null)
+
+  return [1, 2, 3, 4]
+    .map((i) => {
+      const list = props.step[`button${i}` as const]
+      const style = props.step[`button${i}Style` as const]
+      return list ? { list, style } : null
+    })
+    .filter((group): group is ButtonGroup => group !== null)
 })
 
 const descriptionGroups = computed(() => {
@@ -78,17 +88,10 @@ const descriptionGroups = computed(() => {
     const styleKey = `description${i + 1}Style` as keyof Step
     return {
       lines: desc.split('\n'),
-      style: props.step[styleKey] || {}
+      style: props.step[styleKey] || {},
     }
   })
 })
-
-const clearFormData = () => {
-  for (const key in formData.value) {
-    formData.value[key] = ''
-  }
-}
-
 
 watch(
   () => props.step.id,
@@ -98,6 +101,4 @@ watch(
   },
   { immediate: true }
 )
-
 </script>
-

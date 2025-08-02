@@ -15,21 +15,19 @@ export const step1: Step = {
     lineHeight: '1.5',
     textAlign: 'center',
     wordBreak: 'break-word',
-    overflowWrap: 'break-word'
+    overflowWrap: 'break-word',
   },
   formFields: [
-    { name: 'yearLevel', label: '', type: 'text', placeholder: '例：一年目' }
+    { name: 'yearLevel', label: '', type: 'text', placeholder: '例：一年目' },
   ],
   formStyle: {
     position: 'absolute',
     top: '220px',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    minWidth: '60%'
+    minWidth: '60%',
   },
-  button2: [
-    { label: '次へ', actionKey: 'goToNext' }
-  ],
+  button2: [{ label: '次へ', actionKey: 'goToNext' }],
   button2Style: {
     position: 'absolute',
     top: '420px',
@@ -39,6 +37,6 @@ export const step1: Step = {
     backgroundColor: '#3b82f6',
     color: 'white',
     cursor: 'pointer',
-    border: 'none'
-  }
+    border: 'none',
+  },
 }

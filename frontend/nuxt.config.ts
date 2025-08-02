@@ -3,20 +3,17 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   sourcemap: {
     server: true,
-    client: true
+    client: true,
   },
   devServer: {
     port: 3001,
-    host: '0.0.0.0'
+    host: '0.0.0.0',
   },
-  srcDir: 'src/',   // ★ Nuxt のソースディレクトリを src に指定
-  modules: [
-    '@pinia/nuxt',
-    '@pinia-plugin-persistedstate/nuxt'
-  ],
+  srcDir: 'src/', // ★ Nuxt のソースディレクトリを src に指定
+  modules: ['@pinia/nuxt', '@pinia-plugin-persistedstate/nuxt'],
   runtimeConfig: {
     public: {
-      apiBase: 'http://localhost:3000'
-    }
-  }
+      apiBase: 'http://localhost:3000',
+    },
+  },
 })

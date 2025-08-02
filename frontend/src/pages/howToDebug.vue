@@ -8,34 +8,34 @@
     </div>
 
     <!-- Miro埋め込み -->
-    <iframe 
-      width="768" 
-      height="432" 
-      src="https://miro.com/app/live-embed/uXjVIzQOrFo=/?embedMode=view_only_without_ui&moveToViewport=-1255,-598,2104,1053&embedId=647444576739" 
-      frameborder="0" 
-      scrolling="no" 
-      allow="fullscreen; clipboard-read; clipboard-write" 
-      allowfullscreen>
+    <iframe
+      width="768"
+      height="432"
+      src="https://miro.com/app/live-embed/uXjVIzQOrFo=/?embedMode=view_only_without_ui&moveToViewport=-1255,-598,2104,1053&embedId=647444576739"
+      frameborder="0"
+      scrolling="no"
+      allow="fullscreen; clipboard-read; clipboard-write"
+      allowfullscreen
+    >
     </iframe>
 
     <!-- 左下ボタン -->
-    <button class="btn bottom-left" @click="handleLeftClick">
-      戻る
-    </button>
+    <button class="btn bottom-left" @click="handleLeftClick">戻る</button>
 
     <!-- 右下ボタン -->
-    <button class="btn bottom-right" @click="handleRightClick">
-      次へ
-    </button>
+    <button class="btn bottom-right" @click="handleRightClick">次へ</button>
   </div>
 </template>
 
 <script setup lang="ts">
 import { useHowToDebug } from '@/composables/useHowToDebug'
 
-const { handleLeftClick, handleRightClick } = useHowToDebug();
-</script>
+const { handleLeftClick, handleRightClick } = useHowToDebug()
 
+definePageMeta({
+  middleware: ['auth'],
+})
+</script>
 
 <style scoped>
 .container {
@@ -89,5 +89,4 @@ iframe {
   bottom: 55px;
   right: 1rem;
 }
-
 </style>
