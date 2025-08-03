@@ -15,7 +15,7 @@ export const checkFormFieldsByStepId = (
         errors.push('未入力です')
       }
 
-      if (inputData['yearLevel'].length > 4) {
+      if (inputData['yearLevel'] && inputData['yearLevel'].length > 4) {
         errors.push('四文字以内で表現してください。')
       }
 
@@ -33,7 +33,8 @@ export const checkFormFieldsByStepId = (
         errors.push('未入力です')
       }
 
-      if (inputData['programmingLanguage'].length > 50) {
+      if (inputData['programmingLanguage'] && 
+        inputData['programmingLanguage'].length > 50) {
         errors.push('50文字以内で表現してください。')
       }
 
@@ -53,7 +54,7 @@ export const checkFormFieldsByStepId = (
         errors.push('未入力です')
       }
 
-      if (inputData['IDEname'].length > 20) {
+      if (inputData['IDEname'] && inputData['IDEname'].length > 20) {
         errors.push('20文字以内で表現してください。')
       }
 
