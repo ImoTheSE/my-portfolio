@@ -13,7 +13,7 @@ export default defineNuxtConfig({
   modules: ['@pinia/nuxt', '@pinia-plugin-persistedstate/nuxt'],
   runtimeConfig: {
     public: {
-      apiBase: 'http://localhost:3000',
+      apiBase: process.env.API_BASE_URL || 'http://localhost:3000',
     },
   },
 })
