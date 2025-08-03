@@ -24,8 +24,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
 import type { StepFormField } from '@/types/Step'
+import { useStepFormSync } from '@/composables/useStepForm'
 
 const props = defineProps<{
   fields: StepFormField[]
@@ -33,23 +33,9 @@ const props = defineProps<{
   formData: Record<string, string>
 }>()
 
-const emit = defineEmits(['update:formData'])
+const emit = defineEmits<{
+  (e: 'update:formData', value: Record<string, string>): void
+}>()
 
-const localData = ref({ ...props.formData })
-
-watch(
-  () => props.formData,
-  (newVal) => {
-    localData.value = { ...newVal }
-  },
-  { immediate: true }
-)
-
-watch(
-  localData,
-  (newVal) => {
-    emit('update:formData', newVal)
-  },
-  { deep: true }
-)
+const { localData } = useStepFormSync(props.formData, emit, () => props.formData)
 </script>
