@@ -1,0 +1,32 @@
+inherit_from: .rubocop_todo.yml
+
+plugins:
+  - rubocop-rails
+
+AllCops:
+  TargetRubyVersion: 3.4.4
+  NewCops: enable
+  Exclude:
+    - 'bin/**/*'
+    - 'db/schema.rb'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - 'config/environments/*'
+
+Style/Documentation:
+  Exclude:
+    - 'db/migrate/**/*'
+    - 'app/controllers/**/*'
+    - 'app/models/**/*'
+    - 'app/services/**/*'
+    - 'app/mailers/**/*'
+    - 'config/application.rb'
+    - 'test/**/*'
+
+Rails/ThreeStateBooleanColumn:
+  Exclude:
+    - 'db/migrate/**/*'
+
+Rails/ReversibleMigration:
+  Exclude:
+    - 'db/migrate/**/*'
