@@ -7,7 +7,12 @@ require "rails/all"
 Bundler.require(*Rails.groups)
 
 # ここで .env を読み込む
-Dotenv::Railtie.load
+# 開発・テスト環境でのみ dotenv を読み込む
+if %w[development test].include?(Rails.env)
+  require 'dotenv'
+  Dotenv::Railtie.load
+end
+
 
 module App
   class Application < Rails::Application
