@@ -52,7 +52,7 @@ gem 'devise-jwt'
 gem 'rack-cors' # フロントエンドからの通信許可
 
 gem "ruby-openai"
-gem 'dotenv-rails'
+gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'bcrypt'
 gem 'jwt'
