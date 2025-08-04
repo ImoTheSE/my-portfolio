@@ -55,15 +55,18 @@ export const useAppFlow = () => {
     if (index >= 0 && index < steps.value.length) {
       const current = currentStep.value
 
-      if (inputData) {
-        const isValid = checkFormFieldsByStepId(
-          current.formFields,
-          inputData,
-          current.id
-        )
-        if (!isValid) {
-          console.warn(`ステップ "${current.id}" の入力検証に失敗しました。`)
-          return // ❌ 中断！
+      if (currentStepIndex.value < index) {
+        if (inputData) {
+          const isValid = checkFormFieldsByStepId(
+            current.formFields,
+            inputData,
+            current.id,
+            'goToStep'
+          )
+          if (!isValid) {
+            console.warn(`ステップ "${current.id}" の入力検証に失敗しました。`)
+            return // ❌ 中断！
+          }
         }
       }
 
@@ -104,7 +107,8 @@ export const useAppFlow = () => {
         const isValid = checkFormFieldsByStepId(
           current.formFields,
           data,
-          current.id
+          current.id,
+          'goToChatGPT'
         )
         if (!isValid) {
           console.warn(`ステップ "${current.id}" の入力検証に失敗しました。`)

@@ -4,7 +4,8 @@ import type { Step } from '@/types/Step'
 export const checkFormFieldsByStepId = (
   formFields: Step['formFields'],
   inputData: Record<string, string>,
-  stepId: string
+  stepId: string,
+  actionName: string
 ): boolean => {
   const errors: string[] = []
   if (!formFields || !Array.isArray(formFields)) return true // フォームなし → チェックスキップOK
@@ -50,16 +51,18 @@ export const checkFormFieldsByStepId = (
       break
 
     case 's7':
-      if (!inputData['IDEname'] || inputData['IDEname'].trim() === '') {
-        errors.push('未入力です')
-      }
+      if (actionName === 'goToChatGPT') {
+        if (!inputData['IDEname'] || inputData['IDEname'].trim() === '') {
+          errors.push('IDE名が未入力です')
+        }
 
-      if (inputData['IDEname'] && inputData['IDEname'].length > 20) {
-        errors.push('20文字以内で表現してください。')
-      }
+        if (inputData['IDEname'] && inputData['IDEname'].length > 20) {
+          errors.push('20文字以内で表現してください。')
+        }
 
-      if (inputData['IDEname'] && !isAlphanumeric(inputData['IDEname'])) {
-        errors.push('IDE名は半角英数字のみで入力可能です')
+        if (inputData['IDEname'] && !isAlphanumeric(inputData['IDEname'])) {
+          errors.push('IDE名は半角英数字のみで入力可能です')
+        }
       }
 
       break
