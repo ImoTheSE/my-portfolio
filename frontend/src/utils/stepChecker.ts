@@ -44,7 +44,7 @@ export const checkFormFieldsByStepId = (
         !isAlphanumeric(inputData['programmingLanguage'])
       ) {
         errors.push(
-          'プログラミング言語は英数字・カンマ・スペースのみ入力可能です'
+          'プログラミング言語は英数字・カンマ・スペース・一部記号のみ入力可能です'
         )
       }
 
@@ -61,7 +61,7 @@ export const checkFormFieldsByStepId = (
         }
 
         if (inputData['IDEname'] && !isAlphanumeric(inputData['IDEname'])) {
-          errors.push('IDE名は半角英数字のみで入力可能です')
+          errors.push('IDE名は半角英数字一部記号のみ入力可能です')
         }
       }
 
@@ -80,7 +80,7 @@ export const checkFormFieldsByStepId = (
 }
 
 export const isAlphanumeric = (text: string): boolean => {
-  return /^[a-zA-Z0-9, ]+$/.test(text)
+  return /^[a-zA-Z0-9 .:+#()\-\s]+$/.test(text)
 }
 
 export const isAllFullWidth = (text: string): boolean => {
