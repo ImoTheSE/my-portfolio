@@ -34,8 +34,10 @@ export const checkFormFieldsByStepId = (
         errors.push('未入力です')
       }
 
-      if (inputData['programmingLanguage'] && 
-        inputData['programmingLanguage'].length > 50) {
+      if (
+        inputData['programmingLanguage'] &&
+        inputData['programmingLanguage'].length > 50
+      ) {
         errors.push('50文字以内で表現してください。')
       }
 
@@ -80,7 +82,7 @@ export const checkFormFieldsByStepId = (
 }
 
 export const isAlphanumeric = (text: string): boolean => {
-  return /^[a-zA-Z0-9 .:+#()\-\s]+$/.test(text)
+  return /^[a-zA-Z0-9 ,.:+#()\-\s]+$/.test(text)
 }
 
 export const isAllFullWidth = (text: string): boolean => {

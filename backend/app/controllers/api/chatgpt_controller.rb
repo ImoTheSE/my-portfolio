@@ -46,14 +46,14 @@ class Api::ChatgptController < ApplicationController
       lang = grouped['s2']&.find { |i| i['key'] == 'programmingLanguage' }&.dig('value')
       errors << 'プログラミング言語が未入力です' if lang.blank?
       errors << 'プログラミング言語が50文字を超えてます。' if lang && lang.length > 50
-      errors << 'プログラミング言語は英数字・カンマ・スペース・一部記号のみ入力可能です' if lang && !(lang =~ /\A[a-zA-Z0-9 .:+#()\-\s]+\z/)
+      errors << 'プログラミング言語は英数字・カンマ・スペース・一部記号のみ入力可能です' if lang && !(lang =~ /\A[a-zA-Z0-9 ,.:+#()\-\s]+\z/)
     end
 
     if ['s7'].include?(from_step) then
       ide = grouped['s7']&.find { |i| i['key'] == 'IDEname' }&.dig('value')
       errors << 'IDE名が未入力です' if ide.blank?
       errors << 'IDE名が20文字を超えてます。' if ide && ide.length > 20
-      errors << 'IDE名は英数字・カンマ・スペース・一部記号のみ入力可能です' if ide && !(ide =~ /\A[a-zA-Z0-9 .:+#()\-\s]+\z/)
+      errors << 'IDE名は英数字・カンマ・スペース・一部記号のみ入力可能です' if ide && !(ide =~ /\A[a-zA-Z0-9 ,.:+#()\-\s]+\z/)
     end
 
     return errors
