@@ -21,6 +21,7 @@ export const useAppFlow = () => {
     }
   })
 
+  //ローカルストレージに保存
   const saveFilteredInput = (
     formFields: { name?: string }[] | undefined,
     inputData?: Record<string, string>,
@@ -51,6 +52,7 @@ export const useAppFlow = () => {
     }
   }
 
+  //画面遷移
   const goToStep = (index: number, inputData?: Record<string, string>) => {
     if (index >= 0 && index < steps.value.length) {
       const current = currentStep.value
@@ -76,6 +78,7 @@ export const useAppFlow = () => {
     }
   }
 
+  //ローカルストレージから引き出し
   const getSavedInput = (stepID: string): Record<string, string> => {
     const raw = loadInput(stepID)
     const parsed: Record<string, string> = {}
@@ -90,6 +93,7 @@ export const useAppFlow = () => {
     return parsed
   }
 
+  //ボタンに設定されたアクションを実行。各ページの設定は@/data/steps参照
   const actionHandlers: Record<
     string,
     (inputData?: Record<string, string>) => void
@@ -112,7 +116,7 @@ export const useAppFlow = () => {
         )
         if (!isValid) {
           console.warn(`ステップ "${current.id}" の入力検証に失敗しました。`)
-          return // ❌ 中断！
+          return
         }
       }
       saveFilteredInput(current.formFields, data, current.id)

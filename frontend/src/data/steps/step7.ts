@@ -59,7 +59,12 @@ export const step7: Step = {
     border: 'none',
   },
   formFields: [
-    { name: 'IDEname', label: '', type: 'textarea', placeholder: '(半角英数一部記号のみ、20文字以内、入力必須)例：VScode' },
+    {
+      name: 'IDEname',
+      label: '',
+      type: 'textarea',
+      placeholder: '(半角英数一部記号のみ、20文字以内、入力必須)例：VScode',
+    },
   ],
   formStyle: {
     position: 'absolute',

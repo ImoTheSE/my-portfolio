@@ -37,5 +37,9 @@ const emit = defineEmits<{
   (e: 'update:formData', value: Record<string, string>): void
 }>()
 
-const { localData } = useStepFormSync(props.formData, emit, () => props.formData)
+const { localData } = useStepFormSync(
+  props.formData,
+  emit,
+  () => props.formData
+)
 </script>

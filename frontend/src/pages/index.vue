@@ -6,5 +6,5 @@ router.replace('/login')
 </script>
 
 <template>
-  <!-- 空ページ（リダイレクトするだけ） -->
+  <dir></dir>
 </template>

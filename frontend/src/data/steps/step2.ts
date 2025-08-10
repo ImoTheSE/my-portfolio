@@ -22,7 +22,8 @@ export const step2: Step = {
       name: 'programmingLanguage',
       label: '',
       type: 'text',
-      placeholder: '(半角英数一部記号のみ、50文字以内、入力必須)例：javascript,ruby',
+      placeholder:
+        '(半角英数一部記号のみ、50文字以内、入力必須)例：javascript,ruby',
     },
   ],
   formStyle: {
